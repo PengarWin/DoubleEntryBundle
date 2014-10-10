@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle;
  * AccountInterface
  *
  * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
- * @since 2014-10-09
+ * @since  2014-10-09
  */
 interface AccountInterface
 {
