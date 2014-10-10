@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PengarWin\DoubleEntryBundle;
+namespace PengarWin\DoubleEntryBundle\Model;
 
 /**
  * JournalInterface

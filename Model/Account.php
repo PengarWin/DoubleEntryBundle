@@ -7,8 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PengarWin\DoubleEntryBundle;
+namespace PengarWin\DoubleEntryBundle\Model;
 
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
