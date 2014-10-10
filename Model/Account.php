@@ -57,7 +57,7 @@ abstract class Account
      */
     public function __construct($name = null)
     {
-        if ($name) }
+        if ($name) {
             $this->setName($name);
         }
 
@@ -89,7 +89,7 @@ abstract class Account
      */
     public function addPosting(PostingInterface $posting)
     {
-        $this->postings->add($posting;);
+        $this->postings->add($posting);
 
         return $this;
     }
@@ -104,7 +104,7 @@ abstract class Account
      */
     public function removePosting(PostingInterface $posting)
     {
-        $this->postings->remove($posting;);
+        $this->postings->remove($posting);
     }
 
     /**
