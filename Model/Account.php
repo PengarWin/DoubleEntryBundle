@@ -10,6 +10,7 @@
 namespace PengarWin\DoubleEntryBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -19,6 +20,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @since  2014-10-09
  *
  * @ORM\MappedSuperclass
+ * @Gedmo\Tree(type="nested")
  */
 abstract class Account
 {
@@ -26,6 +28,40 @@ abstract class Account
      * id
      */
     protected $id;
+
+    /**
+     * @Gedmo\TreeLeft
+     * @ORM\Column(name="lft", type="integer")
+     */
+    protected $lft;
+
+    /**
+     * @Gedmo\TreeLevel
+     * @ORM\Column(name="lvl", type="integer")
+     */
+    protected $lvl;
+
+    /**
+     * @Gedmo\TreeRight
+     * @ORM\Column(name="rgt", type="integer")
+     */
+    protected $rgt;
+
+    /**
+     * @Gedmo\TreeRoot
+     * @ORM\Column(name="root", type="integer", nullable=true)
+     */
+    protected $root;
+
+    /**
+     * @var AccountInterface
+     */
+    protected $parent;
+
+    /**
+     * @var ArrayCollection|AccountInterface
+     */
+    protected $children;
 
     /**
      * postings
@@ -62,6 +98,7 @@ abstract class Account
         }
 
         $this->postings = new ArrayCollection();
+        $this->children = new ArrayCollection();
     }
 
     /**
