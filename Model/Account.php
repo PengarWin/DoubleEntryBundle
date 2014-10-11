@@ -80,9 +80,14 @@ abstract class Account
 
     /**
      * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=50, unique=false)
+     * @ORM\Column(length=30, unique=false)
      */
     protected $slug;
+
+    /**
+     * @ORM\Column(length=255)
+     */
+    protected $path;
 
     /**
      * Constructor
@@ -263,6 +268,49 @@ abstract class Account
     }
 
     /**
+     * Add child
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-09
+     *
+     * @param  AccountInterface $child
+     *
+     * @return Account
+     */
+    public function addChild(AccountInterface $child)
+    {
+        $this->children->add($child);
+
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-09
+     *
+     * @param  AccountInterface $child
+     */
+    public function removeChild(AccountInterface $child)
+    {
+        $this->children->remove($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-09
+     *
+     * @return ArrayCollection|Account
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
      * Add posting
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
@@ -298,7 +346,7 @@ abstract class Account
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-09
      *
-     * @return ArrayCollection|PostingInterface
+     * @return ArrayCollection|Posting
      */
     public function getPostings()
     {
@@ -393,5 +441,62 @@ abstract class Account
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set path
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @param  string $path
+     *
+     * @return Account
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Generate slug and path
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function generateSlugAndPath()
+    {
+        // Set slug for this Account.  The reason we do this here is that
+        // the slug listener hasn't been called yet
+        $this->setSlug(\Gedmo\Sluggable\Util\Urlizer::urlize($this->name));
+
+        $account = $this;
+
+        $pathSegments = array($this->getSlug());
+
+        while ($account->getParent()) {
+            $account        = $account->getParent();
+            $pathSegments[] = $account->getSlug();
+        }
+
+        $this->setPath(implode('/', array_reverse($pathSegments)));
     }
 }
