@@ -79,6 +79,7 @@ abstract class Account
     protected $balance = 0;
 
     /**
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=50, unique=false)
      */
     protected $slug;
@@ -102,6 +103,19 @@ abstract class Account
     }
 
     /**
+     * __toString()
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * Get id
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
@@ -112,6 +126,140 @@ abstract class Account
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set lft
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @param  integer $lft
+     */
+    public function setLft($lft)
+    {
+        $this->lft = $lft;
+    }
+
+    /**
+     * Get lft
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return integer
+     */
+    public function getLft()
+    {
+        return $this->lft;
+    }
+
+    /**
+     * Set lvl
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @param  integer $lvl
+     */
+    public function setLvl($lvl)
+    {
+        $this->lvl = $lvl;
+    }
+
+    /**
+     * Get lvl
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return integer
+     */
+    public function getLvl()
+    {
+        return $this->lvl;
+    }
+
+    /**
+     * Set rgt
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @param  integer $rgt
+     */
+    public function setRgt($rgt)
+    {
+        $this->rgt = $rgt;
+    }
+
+    /**
+     * Get rgt
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return integer
+     */
+    public function getRgt()
+    {
+        return $this->rgt;
+    }
+
+    /**
+     * Set root
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @param  integer $root
+     */
+    public function setRoot($root)
+    {
+        $this->root = $root;
+    }
+
+    /**
+     * Get root
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return integer
+     */
+    public function getRoot()
+    {
+        return $this->root;
+    }
+
+    /**
+     * Set parent
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @param  AccountInterface $parent
+     *
+     * @return Account
+     */
+    public function setParent(AccountInterface $parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-10
+     *
+     * @return Account
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 
     /**
