@@ -45,7 +45,7 @@ abstract class Account
     /**
      * @ORM\Column(length=50, unique=false)
      */
-    private $slug;
+    protected $slug;
 
     /**
      * Constructor
