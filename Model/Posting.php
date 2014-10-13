@@ -63,7 +63,7 @@ abstract class Posting
     protected $updatedAt;
 
     /**
-     * @ORM\Column(type="datetime", name="posted_at")
+     * @ORM\Column(type="datetime", name="posted_at", nullable=true)
      */
     protected $postedAt;
 
