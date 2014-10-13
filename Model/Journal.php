@@ -35,6 +35,11 @@ abstract class Journal
     protected $postings;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $description;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -137,6 +142,36 @@ abstract class Journal
     public function removePosting(PostingInterface $posting)
     {
         $this->postings->removeElement($posting);
+    }
+
+    /**
+     * Set description
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @param  string $description
+     *
+     * @return Journal
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
