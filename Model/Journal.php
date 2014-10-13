@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
+use PengarWin\DoubleEntryBundle\Exception\NotSimpleJournalException;
 
 /**
  * Journal
@@ -33,6 +34,27 @@ abstract class Journal
      * @var ArrayCollection|PostingInterface
      */
     protected $postings;
+
+    /**
+     * Do not map in sub class
+     *
+     * @var AccountInterface
+     */
+    protected $offsetAccount;
+
+    /**
+     * Do not map in sub class
+     *
+     * @var float
+     */
+    protected $creditAmount = 0;
+
+    /**
+     * Do not map in sub class
+     *
+     * @var float
+     */
+    protected $debitAmount = 0;
 
     /**
      * @ORM\Column(type="string")
@@ -105,6 +127,32 @@ abstract class Journal
     public function getPostings()
     {
         return $this->postings;
+    }
+
+    /**
+     * Set offsetAccount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @param  AccountInterface $offsetAccount
+     */
+    public function setOffsetAccount(AccountInterface $offsetAccount)
+    {
+        $this->offsetAccount = $offsetAccount;
+    }
+
+    /**
+     * Get offsetAccount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @return Account
+     */
+    public function getOffsetAccount()
+    {
+        return $this->offsetAccount;
     }
 
     /**
@@ -341,5 +389,94 @@ abstract class Journal
         $this->addPosting($posting);
 
         return $posting;
+    }
+
+    /**
+     * Set creditAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-12
+     *
+     * @param  float $creditAmount
+     */
+    public function setCreditAmount($creditAmount)
+    {
+        $this->creditAmount = $creditAmount;
+    }
+
+    /**
+     * Get creditAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-12
+     *
+     * @return float
+     */
+    public function getCreditAmount()
+    {
+        return $this->creditAmount;
+    }
+
+    /**
+     * Set debitAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-12
+     *
+     * @param  float $debitAmount
+     */
+    public function setDebitAmount($debitAmount)
+    {
+        $this->debitAmount = $debitAmount;
+    }
+
+    /**
+     * Get debitAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-12
+     *
+     * @return float
+     */
+    public function getDebitAmount()
+    {
+        return $this->debitAmount;
+    }
+
+    /**
+     * Assert that this Journal is a simple Journal, i.e. has exactly two
+     * Postings
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     */
+    public function assertIsSimpleJournal()
+    {
+        if (2 != $this->getPostings()->count()) {
+            throw new \Exception(sprintf(
+                'Journal has %d Postings and is not a simple Journal',
+                $this->getPostings()->count()
+            ));
+        }
+    }
+
+    /**
+     * Checks whether this Journal is a simple Journal, i.e. has exactly two
+     * Postings
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @return bool
+     */
+    public function isSimpleJournal()
+    {
+        try {
+            $this->assertIsSimpleJournal();
+
+            return true;
+        } catch (NotSimpleJournalException $e) {
+            return false;
+        }
     }
 }

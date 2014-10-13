@@ -44,6 +44,13 @@ abstract class Posting
     protected $amount = 0;
 
     /**
+     * Do not map in subclass
+     *
+     * @var float
+     */
+    protected $calculatedBalance = 0;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -97,6 +104,32 @@ abstract class Posting
     public function getAmount()
     {
         return $this->amount;
+    }
+
+    /**
+     * Set calculatedBalance
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @param  float $calculatedBalance
+     */
+    public function setCalculatedBalance($calculatedBalance)
+    {
+        $this->calculatedBalance = $calculatedBalance;
+    }
+
+    /**
+     * Get calculatedBalance
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @return float
+     */
+    public function getCalculatedBalance()
+    {
+        return $this->calculatedBalance;
     }
 
     /**
@@ -251,5 +284,58 @@ abstract class Posting
     {
         $this->setPostedAt(new \DateTime());
         $this->updateAccountBalance();
+    }
+
+    /**
+     * Get offset posting
+     *
+     * If this Posting's Journal has only two Postings, then return the offset
+     * Posting
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     * @todo   Use better Exception class
+     *
+     * @return Posting
+     */
+    public function getOffsetPosting()
+    {
+        $this->getJournal()->assertIsSimpleJournal();
+
+        foreach ($this->getJournal()->getPostings() as $posting) {
+            if ($posting != $this) {
+                return $posting;
+            }
+        }
+    }
+
+    /**
+     * Get creditAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @return float
+     */
+    public function getCreditAmount()
+    {
+        if (0.00001 < $this->getAmount()) {
+            return $this->getAmount();
+        }
+    }
+
+    /**
+     * Get debitAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @return float
+     */
+    public function getDebitAmount()
+    {
+        if (-0.00001 > $this->getAmount()) {
+            return abs($this->getAmount());
+        }
     }
 }
