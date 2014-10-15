@@ -43,6 +43,11 @@ abstract class Journal
     protected $offsetAccount;
 
     /**
+     * @var VendorInterface
+     */
+    protected $vendor;
+
+    /**
      * Do not map in sub class
      *
      * @var float
@@ -478,5 +483,31 @@ abstract class Journal
         } catch (NotSimpleJournalException $e) {
             return false;
         }
+    }
+
+    /**
+     * Set vendor
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-14
+     *
+     * @param  VendorInterface $vendor
+     */
+    public function setVendor(VendorInterface $vendor)
+    {
+        $this->vendor = $vendor;
+    }
+
+    /**
+     * Get vendor
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-14
+     *
+     * @return Vendor
+     */
+    public function getVendor()
+    {
+        return $this->vendor;
     }
 }
