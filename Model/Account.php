@@ -12,6 +12,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Criteria;
 
 /**
  * Account
@@ -69,14 +70,14 @@ abstract class Account
     protected $postings;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=30)
      */
     protected $name;
 
     /**
      * @ORM\Column(type="decimal", scale=2)
      */
-    protected $balance = 0;
+    protected $postedBalance = 0;
 
     /**
      * @Gedmo\Slug(fields={"name"})
@@ -85,9 +86,19 @@ abstract class Account
     protected $slug;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $segmentation;
+
+    /**
      * @ORM\Column(length=255)
      */
     protected $path;
+
+    /**
+     * @var ArrayCollection|ChequeInterface
+     */
+    protected $cheques;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -117,6 +128,7 @@ abstract class Account
 
         $this->postings = new ArrayCollection();
         $this->children = new ArrayCollection();
+        $this->cheques  = new ArrayCollection();
     }
 
     /**
@@ -129,7 +141,7 @@ abstract class Account
      */
     public function __toString()
     {
-        return $this->getName();
+        return $this->getSegmentation();
     }
 
     /**
@@ -396,33 +408,33 @@ abstract class Account
     }
 
     /**
-     * Set balance
+     * Set postedBalance
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-09
      *
-     * @param  float $balance
+     * @param  float $postedBalance
      *
      * @return Account
      */
-    public function setBalance($balance)
+    public function setPostedBalance($postedBalance)
     {
-        $this->balance = $balance;
+        $this->postedBalance = $postedBalance;
 
         return $this;
     }
 
     /**
-     * Get balance
+     * Get postedBalance
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-09
      *
      * @return float
      */
-    public function getBalance()
+    public function getPostedBalance()
     {
-        return $this->balance;
+        return $this->postedBalance;
     }
 
     /**
@@ -486,7 +498,37 @@ abstract class Account
     }
 
     /**
-     * Generate slug and path
+     * Set segmentation
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-17
+     *
+     * @param  string $segmentation
+     *
+     * @return Account
+     */
+    public function setSegmentation($segmentation)
+    {
+        $this->segmentation = $segmentation;
+
+        return $this;
+    }
+
+    /**
+     * Get segmentation
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-17
+     *
+     * @return string
+     */
+    public function getSegmentation()
+    {
+        return $this->segmentation;
+    }
+
+    /**
+     * Generate slug, segmentation and path
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-11
@@ -494,22 +536,33 @@ abstract class Account
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
-    public function generateSlugAndPath()
+    public function generateSlugSegmentationAndPath()
     {
         // Set slug for this Account.  The reason we do this here is that
         // the slug listener hasn't been called yet
         $this->setSlug(\Gedmo\Sluggable\Util\Urlizer::urlize($this->name));
 
-        $account = $this;
+        if ($this->getParent()) {
+            $account = $this;
 
-        $pathSegments = array($this->getSlug());
+            $pathSegments = array($account->getSlug());
+            $nameSegments = array($account->getName());
 
-        while ($account->getParent()) {
-            $account        = $account->getParent();
-            $pathSegments[] = $account->getSlug();
+            while ($account->getParent()) {
+                $account        = $account->getParent();
+
+                if (0 < $account->getLvl()) {
+                    $pathSegments[] = $account->getSlug();
+                    $nameSegments[] = $account->getName();
+                }
+            }
+
+            $this->setPath(implode('/', array_reverse($pathSegments)));
+            $this->setSegmentation(implode(':', array_reverse($nameSegments)));
+        } else {
+            $this->setPath('/');
+            $this->setSegmentation(':');
         }
-
-        $this->setPath(implode('/', array_reverse($pathSegments)));
     }
 
     /**
@@ -570,5 +623,83 @@ abstract class Account
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Add cheque
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @param  ChequeInterface $cheque
+     *
+     * @return Account
+     */
+    public function addCheque(ChequeInterface $cheque)
+    {
+        $this->cheques->add($cheque);
+
+        return $this;
+    }
+
+    /**
+     * Remove cheque
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @param  ChequeInterface $cheque
+     */
+    public function removeCheque(ChequeInterface $cheque)
+    {
+        $this->cheques->remove($cheque);
+    }
+
+    /**
+     * Get cheques
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-13
+     *
+     * @return ArrayCollection|Cheque
+     */
+    public function getCheques()
+    {
+        return $this->cheques;
+    }
+
+    /**
+     * Get posted Postings
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-15
+     *
+     * @return ArrayCollection|Posting
+     */
+    public function getPostedPostings()
+    {
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->neq('postedAt', null))
+            ->orderBy(array('postedAt' => Criteria::ASC))
+        ;
+
+        return $this->getPostings()->matching($criteria);
+    }
+
+    /**
+     * Get unposted Postings
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-15
+     *
+     * @return ArrayCollection|Posting
+     */
+    public function getUnpostedPostings()
+    {
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->eq('postedAt', null))
+        ;
+
+        return $this->getPostings()->matching($criteria);
     }
 }

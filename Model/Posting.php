@@ -283,7 +283,10 @@ abstract class Posting
     public function post()
     {
         $this->setPostedAt(new \DateTime());
-        $this->updateAccountBalance();
+
+        $this->getAccount()->setPostedBalance(
+            $this->getAccount()->getPostedBalance() + $this->getAmount()
+        );
     }
 
     /**

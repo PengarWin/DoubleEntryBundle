@@ -48,6 +48,11 @@ abstract class Journal
     protected $vendor;
 
     /**
+     * @var string
+     */
+    protected $proposedVendorName = '';
+
+    /**
      * Do not map in sub class
      *
      * @var float
@@ -64,7 +69,12 @@ abstract class Journal
     /**
      * @ORM\Column(type="string")
      */
-    protected $description;
+    protected $description = '';
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $date;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -176,7 +186,7 @@ abstract class Journal
             $postingBalance += $posting->getAmount();
         }
 
-        if (0.00001 < abs($sum)) {
+        if (0.00001 < abs($postingBalance)) {
             throw new JournalImbalanceException(sprintf(
                 'Posting balance must be zero; %f given',
                 $postingBalance
@@ -225,6 +235,36 @@ abstract class Journal
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set date
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @param \DateTime $date
+     *
+     * @return Journal
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-11
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 
     /**
@@ -509,5 +549,35 @@ abstract class Journal
     public function getVendor()
     {
         return $this->vendor;
+    }
+
+    /**
+     * Set proposedVendorName
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-16
+     *
+     * @param  string $proposedVendorName
+     *
+     * @return Journal
+     */
+    public function setProposedVendorName($proposedVendorName)
+    {
+        $this->proposedVendorName = $proposedVendorName;
+
+        return $this;
+    }
+
+    /**
+     * Get proposedVendorName
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-16
+     *
+     * @return string
+     */
+    public function getProposedVendorName()
+    {
+        return $this->proposedVendorName;
     }
 }
