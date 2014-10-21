@@ -141,7 +141,7 @@ abstract class Account
      */
     public function __toString()
     {
-        return $this->getSegmentation();
+        return $this->getName();
     }
 
     /**
@@ -701,5 +701,24 @@ abstract class Account
         ;
 
         return $this->getPostings()->matching($criteria);
+    }
+
+    /**
+     * Find a child account by name
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-19
+     *
+     * @param  string $name
+     *
+     * @return Account
+     */
+    public function findChildForName($name)
+    {
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->eq('name', $name))
+        ;
+
+        return $this->getChildren()->matching($criteria)->first();
     }
 }
