@@ -55,6 +55,16 @@ abstract class Vendor
     protected $defaultJournalDescription = '';
 
     /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    protected $defaultJournalCreditAmount = 0;
+
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    protected $defaultJournalDebitAmount = 0;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -323,5 +333,57 @@ abstract class Vendor
     public function getDefaultJournalDescription()
     {
         return $this->defaultJournalDescription;
+    }
+
+    /**
+     * Set defaultJournalCreditAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @param  float $defaultJournalCreditAmount
+     */
+    public function setDefaultJournalCreditAmount($defaultJournalCreditAmount)
+    {
+        $this->defaultJournalCreditAmount = $defaultJournalCreditAmount;
+    }
+
+    /**
+     * Get defaultJournalCreditAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @return float
+     */
+    public function getDefaultJournalCreditAmount()
+    {
+        return $this->defaultJournalCreditAmount;
+    }
+
+    /**
+     * Set defaultJournalDebitAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @param  float $defaultJournalDebitAmount
+     */
+    public function setDefaultJournalDebitAmount($defaultJournalDebitAmount)
+    {
+        $this->defaultJournalDebitAmount = $defaultJournalDebitAmount;
+    }
+
+    /**
+     * Get defaultJournalDebitAmount
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @return float
+     */
+    public function getDefaultJournalDebitAmount()
+    {
+        return $this->defaultJournalDebitAmount;
     }
 }
