@@ -47,7 +47,12 @@ abstract class Vendor
     /**
      * @var Account
      */
-    protected $offsetAccount;
+    protected $defaultOffsetAccount;
+
+    /**
+     * @ORM\Column(type="string", name="default_journal_description")
+     */
+    protected $defaultJournalDescription = '';
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -265,28 +270,58 @@ abstract class Vendor
     }
 
     /**
-     * Set offsetAccount
+     * Set defaultOffsetAccount
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-11
      *
-     * @param  AccountInterface $offsetAccount
+     * @param  AccountInterface $defaultOffsetAccount
      */
-    public function setOffsetAccount(AccountInterface $offsetAccount)
+    public function setDefaultOffsetAccount(AccountInterface $defaultOffsetAccount)
     {
-        $this->offsetAccount = $offsetAccount;
+        $this->defaultOffsetAccount = $defaultOffsetAccount;
     }
 
     /**
-     * Get offsetAccount
+     * Get defaultOffsetAccount
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-11
      *
      * @return Account
      */
-    public function getOffsetAccount()
+    public function getDefaultOffsetAccount()
     {
-        return $this->offsetAccount;
+        return $this->defaultOffsetAccount;
+    }
+
+    /**
+     * Set defaultJournalDescription
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @param  string $defaultJournalDescription
+     *
+     * @return Vendor
+     */
+    public function setDefaultJournalDescription($defaultJournalDescription)
+    {
+        $this->defaultJournalDescription = $defaultJournalDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get defaultJournalDescription
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-22
+     *
+     * @return string
+     */
+    public function getDefaultJournalDescription()
+    {
+        return $this->defaultJournalDescription;
     }
 }
