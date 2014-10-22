@@ -60,6 +60,11 @@ abstract class Account
     protected $parent;
 
     /**
+     * @var OrganizationInterface
+     */
+    protected $organization;
+
+    /**
      * @var ArrayCollection|AccountInterface
      */
     protected $children;
@@ -289,6 +294,36 @@ abstract class Account
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set organization
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-21
+     *
+     * @param  OrganizationInterface $organization
+     *
+     * @return Organization
+     */
+    public function setOrganization(OrganizationInterface $organization)
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-21
+     *
+     * @return Organization
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
     }
 
     /**
