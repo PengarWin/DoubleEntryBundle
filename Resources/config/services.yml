@@ -1,0 +1,8 @@
+parameters:
+    pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
+
+services:
+    pengarwin.organization_handler:
+        class: %pengarwin.organization_handler.class%
+        arguments:
+            - @security.context
