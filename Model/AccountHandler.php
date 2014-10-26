@@ -156,4 +156,27 @@ class AccountHandler
 
         return $account;
     }
+
+    /**
+     * Render Account tree as a multi-level array
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-26
+     *
+     * @param  AccountInterface $account
+     *
+     * @return array
+     */
+    public function renderArray(AccountInterface $account)
+    {
+        $array = array(
+            'name' => $account->getName(),
+        );
+
+        foreach ($account->getChildren() as $child) {
+            $array['children'][] = $this->renderArray($child);
+        }
+
+        return $array;
+    }
 }
