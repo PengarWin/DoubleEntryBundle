@@ -103,6 +103,7 @@ class AccountHandler
         $account = $this->accountClassName;
 
         $chart = new $account($organization->getName());
+        $organization->setChartOfAccounts($chart);
 
         $chart->addChild($assets = new $account('Assets'));
         $assets->addChild($bank = new $account('Bank'));
