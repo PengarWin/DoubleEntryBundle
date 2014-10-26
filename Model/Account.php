@@ -587,7 +587,8 @@ abstract class Account
             while ($account->getParent()) {
                 $account        = $account->getParent();
 
-                if (0 < $account->getLvl()) {
+                // Don't include root
+                if ($account->getParent()) {
                     $pathSegments[] = $account->getSlug();
                     $nameSegments[] = $account->getName();
                 }
