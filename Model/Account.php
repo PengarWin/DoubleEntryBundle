@@ -339,6 +339,7 @@ abstract class Account
     public function addChild(AccountInterface $child)
     {
         $this->children->add($child);
+        $child->setParent($this);
 
         return $this;
     }
