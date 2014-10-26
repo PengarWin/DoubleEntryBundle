@@ -340,6 +340,7 @@ abstract class Account
     {
         $this->children->add($child);
         $child->setParent($this);
+        $child->setOrganization($this->getOrganization());
 
         return $this;
     }
