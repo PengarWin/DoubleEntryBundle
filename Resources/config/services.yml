@@ -1,8 +1,14 @@
 parameters:
     pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
+    pengarwin.account_handler.class:      PengarWin\DoubleEntryBundle\Model\AccountHandler
+    pengarwin.account.class:              \PengarWin\CoreBundle\Entity\Account
 
 services:
     pengarwin.organization_handler:
         class: %pengarwin.organization_handler.class%
         arguments:
             - @security.context
+
+    pengarwin.account_handler:
+        class: %pengarwin.account_handler.class%
+        arguments: [%pengarwin.account.class%]

@@ -25,33 +25,59 @@ use Doctrine\Common\Collections\Criteria;
 class AccountHandler
 {
     /**
+     * Account class name
+     *
+     * @var string
+     */
+    protected $accountClassName;
+
+    /**
+     * __construct()
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-23
+     *
+     * @param  string $accountClassName
+     */
+    public function __construct($accountClassName)
+    {
+        $this->accountClassName = $accountClassName;
+    }
+
+    /**
      * Create new chart of accounts
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-19
      *
+     * @param  OrganizationInterface $organization
+     *
      * @return Account
      */
-    public function createChartOfAccounts(AccountInterface $chart)
+    public function createChartOfAccounts(OrganizationInterface $organization)
     {
-        $chart->addChild($assets = $chart->createNewAccount('Assets'));
-        $assets->addChild($bank = $chart->createNewAccount('Bank'));
-        $bank->addChild($checking = $chart->createNewAccount('Checking'));
+        $account = $this->accountClassName;
 
-        $chart->addChild($equity = $chart->createNewAccount('Equity'));
-        $equity->addChild($opening = $chart->createNewAccount('Opening Balance'));
+        $chart = new $account($organization->getName());
 
-        $chart->addChild($expenses = $chart->createNewAccount('Expenses'));
-        $expenses->addChild($food = $chart->createNewAccount('Food'));
-        $expenses->addChild($auto = $chart->createNewAccount('Auto'));
-        $auto->addChild($gas = $chart->createNewAccount('Gas'));
-        $expenses->addChild($childcare = $chart->createNewAccount('Childcare'));
+        $chart->addChild($assets = new $account('Assets'));
+        $assets->addChild($bank = new $account('Bank'));
+        $bank->addChild($checking = new $account('Checking'));
 
-        $chart->addChild($income = $chart->createNewAccount('Income'));
-        $income->addChild($salary = $chart->createNewAccount('Salary'));
+        $chart->addChild($equity = new $account('Equity'));
+        $equity->addChild($opening = new $account('Opening Balance'));
 
-        $chart->addChild($liabilities = $chart->createNewAccount('Liabilities'));
-        $liabilities->addChild($cc = $chart->createNewAccount('Credit Cards'));
+        $chart->addChild($expenses = new $account('Expenses'));
+        $expenses->addChild($food = new $account('Food'));
+        $expenses->addChild($auto = new $account('Auto'));
+        $auto->addChild($gas = new $account('Gas'));
+        $expenses->addChild($childcare = new $account('Childcare'));
+
+        $chart->addChild($income = new $account('Income'));
+        $income->addChild($salary = new $account('Salary'));
+
+        $chart->addChild($liabilities = new $account('Liabilities'));
+        $liabilities->addChild($cc = new $account('Credit Cards'));
 
         return $chart;
     }
@@ -78,7 +104,7 @@ class AccountHandler
             $parent = $account;
 
             if (!$account = $account->findChildForName($segment)) {
-                $account = $chart->createNewAccount($segment);
+                $account = new $this->accountClassName($segment);
                 $parent->addChild($account);
             }
         }

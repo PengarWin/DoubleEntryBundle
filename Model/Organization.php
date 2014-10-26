@@ -125,6 +125,7 @@ abstract class Organization
     public function setChartOfAccounts(AccountInterface $chartOfAccounts)
     {
         $this->chartOfAccounts = $chartOfAccounts;
+        $chartOfAccounts->setOrganization($this);
 
         return $this;
     }
