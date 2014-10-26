@@ -15,7 +15,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
  * @since  2014-10-23
  */
-class OrganizationHandler
+class OrganizationHandler implements OrganizationHandlerInterface
 {
     /**
      * SecurityContext
@@ -25,18 +25,28 @@ class OrganizationHandler
     protected $securityContext;
 
     /**
+     * EntityManager
+     *
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
+    /**
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-23
      *
      * @param  \Symfony\Component\Security\Core\SecurityContext $securityContext
+     * @param  \Doctrine\ORM\EntityManager $em
      */
     public function __construct(
-        \Symfony\Component\Security\Core\SecurityContext $securityContext
+        \Symfony\Component\Security\Core\SecurityContext $securityContext,
+        \Doctrine\ORM\EntityManager $em
     )
     {
         $this->securityContext = $securityContext;
+        $this->em = $em;
     }
 
     /**

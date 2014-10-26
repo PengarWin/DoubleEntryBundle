@@ -32,16 +32,60 @@ class AccountHandler
     protected $accountClassName;
 
     /**
+     * OrganizationHandler
+     *
+     * @var OrganizationHandlerInterface
+     */
+    protected $organizationHandler;
+
+    /**
+     * EntityManager
+     *
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
+    /**
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-23
      *
      * @param  string $accountClassName
+     * @param  OrganizationHandlerInterface $organizationHandler
+     * @param  \Doctrine\ORM\EntityManager $em
      */
-    public function __construct($accountClassName)
+    public function __construct(
+        $accountClassName,
+        OrganizationHandlerInterface $organizationHandler,
+        \Doctrine\ORM\EntityManager $em
+    )
     {
         $this->accountClassName = $accountClassName;
+        $this->organizationHandler = $organizationHandler;
+        $this->em = $em;
+    }
+
+    /**
+     * Get chart of accounts for current Organization
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-23
+     *
+     * @return Account
+     */
+    public function getChartOfAccounts()
+    {
+        $organization = $this->organizationHandler->getOrganization();
+
+        if (!$organization->getChartOfAccounts()) {
+            $chart = $this->createChartOfAccounts($organization);
+
+            $this->em->persist($organization);
+            $this->em->flush();
+        }
+
+        return $organization->getChartOfAccounts();
     }
 
     /**
