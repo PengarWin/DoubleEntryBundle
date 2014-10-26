@@ -82,6 +82,11 @@ abstract class Journal
     protected $date;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $chequeNumber;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -614,5 +619,35 @@ abstract class Journal
     public function getProposedOffsetAccountSegmentation()
     {
         return $this->proposedOffsetAccountSegmentation;
+    }
+
+    /**
+     * Set chequeNumber
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-26
+     *
+     * @param  int $chequeNumber
+     *
+     * @return Journal
+     */
+    public function setChequeNumber($chequeNumber)
+    {
+        $this->chequeNumber = (int) $chequeNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get chequeNumber
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-26
+     *
+     * @return int
+     */
+    public function getChequeNumber()
+    {
+        return $this->chequeNumber;
     }
 }
