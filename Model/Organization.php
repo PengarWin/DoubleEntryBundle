@@ -46,6 +46,11 @@ abstract class Organization
     protected $users;
 
     /**
+     * @var ArrayCollection|VendorInterface
+     */
+    protected $vendors;
+
+    /**
      * @ORM\Column(type="string", length=30)
      */
     protected $name;
@@ -229,6 +234,50 @@ abstract class Organization
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add vendor
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @param  VendorInterface $vendor
+     *
+     * @return Organization
+     */
+    public function addVendor(VendorInterface $vendor)
+    {
+        $this->vendors->add($vendor);
+        $vendor->setOrganization($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove vendor
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @param  VendorInterface $vendor
+     */
+    public function removeVendor(VendorInterface $vendor)
+    {
+        $this->vendors->remove($vendor);
+    }
+
+    /**
+     * Get vendors
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @return ArrayCollection|Vendor
+     */
+    public function getVendors()
+    {
+        return $this->vendors;
     }
 
     /**

@@ -34,6 +34,11 @@ abstract class Vendor
     protected $journals;
 
     /**
+     * @var OrganizationInterface
+     */
+    protected $organization;
+
+    /**
      * @ORM\Column(type="string", unique=true)
      */
     protected $name;
@@ -385,5 +390,35 @@ abstract class Vendor
     public function getDefaultJournalDebitAmount()
     {
         return $this->defaultJournalDebitAmount;
+    }
+
+    /**
+     * Set organization
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @param  OrganizationInterface $organization
+     *
+     * @return Vendor
+     */
+    public function setOrganization(OrganizationInterface $organization)
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @return Organization
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
     }
 }
