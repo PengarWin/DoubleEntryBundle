@@ -74,4 +74,17 @@ class OrganizationHandler implements OrganizationHandlerInterface
     {
         return $this->securityContext->getToken()->getUser();
     }
+
+    /**
+     * Find Vendor for given slug
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @param  string
+     */
+    public function findVendorForSlug($slug)
+    {
+        return $this->getOrganization()->findVendorForSlug($slug);
+    }
 }

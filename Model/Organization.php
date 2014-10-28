@@ -399,4 +399,21 @@ abstract class Organization
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Find Vendor given slug
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-10-27
+     *
+     * @return Vendor
+     */
+    public function findVendorForSlug($slug)
+    {
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->eq('slug', $slug))
+        ;
+
+        return $this->getVendors()->matching($criteria)->first();
+    }
 }
