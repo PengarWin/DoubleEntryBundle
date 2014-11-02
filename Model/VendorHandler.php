@@ -65,12 +65,14 @@ class VendorHandler implements VendorHandlerInterface
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  1.0.0
      *
+     * @param  string  $name
+     *
      * @return Vendor
      */
-    public function createVendor()
+    public function createVendor($name = null)
     {
-        $vendor = new $this->vendorFqcn();
-        $vendor->setOrganization($oh->getOrganization());
+        $vendor = new $this->vendorFqcn($name);
+        $vendor->setOrganization($this->oh->getOrganization());
 
         return $vendor;
     }
@@ -91,6 +93,27 @@ class VendorHandler implements VendorHandlerInterface
             ->getRepository($this->vendorFqcn)
             ->findOneBy(array(
                 'name' => $name,
+                'organization' => $this->oh->getOrganization()
+            ))
+        ;
+    }
+
+    /**
+     * Find Vendor for slug
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  string  $slug
+     *
+     * @return Vendor
+     */
+    public function findVendorForSlug($slug)
+    {
+        return $this->em
+            ->getRepository($this->vendorFqcn)
+            ->findOneBy(array(
+                'slug' => $slug,
                 'organization' => $this->oh->getOrganization()
             ))
         ;

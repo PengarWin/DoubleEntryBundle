@@ -49,5 +49,5 @@ interface VendorHandlerInterface
      *
      * @return Vendor
      */
-    public function findVendorForName($slug);
+    public function findVendorForSlug($slug);
 }
