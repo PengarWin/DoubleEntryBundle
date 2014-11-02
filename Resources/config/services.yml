@@ -2,8 +2,7 @@ parameters:
     pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
     pengarwin.account_handler.class:      PengarWin\DoubleEntryBundle\Model\AccountHandler
     pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
-    pengarwin.account.class:              \PengarWin\CoreBundle\Entity\Account
-    pengarwin.vendor.class:               \PengarWin\CoreBundle\Entity\Vendor
+    pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
 
 services:
     pengarwin.organization_handler:
@@ -25,3 +24,10 @@ services:
             - %pengarwin.account.class%
             - @pengarwin.organization_handler
             - @doctrine.orm.entity_manager
+
+    pengarwin.type.vendor_selector:
+        class: %pengarwin.vendor_selector.class%
+        arguments:
+            - @pengarwin.vendor_handler
+        tags:
+            - { name: form.type, alias: vendor_selector }

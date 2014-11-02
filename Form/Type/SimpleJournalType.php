@@ -42,11 +42,7 @@ class SimpleJournalType extends AbstractType
                     'size' => 1,
                 )
             ))
-            ->add('proposedVendorName', null, array(
-                'attr' => array(
-                    'size' => 10,
-                )
-            ))
+            ->add('vendor', 'vendor_selector')
             ->add('description', null, array(
                 'attr' => array(
                     'size' => 10,
