@@ -112,6 +112,7 @@ abstract class Journal
     public function __construct()
     {
         $this->postings = new ArrayCollection();
+        $this->setDate(new \DateTime());
     }
 
     /**
