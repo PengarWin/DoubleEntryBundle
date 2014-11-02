@@ -1,13 +1,22 @@
 parameters:
     pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
     pengarwin.account_handler.class:      PengarWin\DoubleEntryBundle\Model\AccountHandler
+    pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
     pengarwin.account.class:              \PengarWin\CoreBundle\Entity\Account
+    pengarwin.vendor.class:               \PengarWin\CoreBundle\Entity\Vendor
 
 services:
     pengarwin.organization_handler:
         class: %pengarwin.organization_handler.class%
         arguments:
             - @security.context
+            - @doctrine.orm.entity_manager
+
+    pengarwin.vendor_handler:
+        class: %pengarwin.vendor_handler.class%
+        arguments:
+            - %pengarwin.vendor.class%
+            - @pengarwin.organization_handler
             - @doctrine.orm.entity_manager
 
     pengarwin.account_handler:
