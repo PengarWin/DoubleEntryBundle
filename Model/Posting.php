@@ -68,6 +68,21 @@ abstract class Posting
     protected $postedAt;
 
     /**
+     * Constructor
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  AccountInterface $account
+     * @param  float            $amount
+     */
+    public function __construct(AccountInterface $account, $amount)
+    {
+        $this->setAccount($account);
+        $this->setAmount($amount);
+    }
+
+    /**
      * Get id
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
