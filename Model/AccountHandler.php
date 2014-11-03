@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Criteria;
  * AccountHandler
  *
  * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
- * @since  2014-10-19
+ * @since  1.0.0
  *
  * @ORM\MappedSuperclass
  */
@@ -29,14 +29,14 @@ class AccountHandler
      *
      * @var string
      */
-    protected $accountClassName;
+    protected $accountFqcn;
 
     /**
      * OrganizationHandler
      *
      * @var OrganizationHandlerInterface
      */
-    protected $organizationHandler;
+    protected $oh;
 
     /**
      * EntityManager
@@ -49,20 +49,20 @@ class AccountHandler
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-23
+     * @since  1.0.0
      *
-     * @param  string $accountClassName
-     * @param  OrganizationHandlerInterface $organizationHandler
+     * @param  string $accountFqcn
+     * @param  OrganizationHandlerInterface $oh
      * @param  \Doctrine\ORM\EntityManager $em
      */
     public function __construct(
-        $accountClassName,
-        OrganizationHandlerInterface $organizationHandler,
+        $accountFqcn,
+        OrganizationHandlerInterface $oh,
         \Doctrine\ORM\EntityManager $em
     )
     {
-        $this->accountClassName = $accountClassName;
-        $this->organizationHandler = $organizationHandler;
+        $this->accountFqcn = $accountFqcn;
+        $this->oh = $oh;
         $this->em = $em;
     }
 
@@ -70,13 +70,13 @@ class AccountHandler
      * Get chart of accounts for current Organization
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-23
+     * @since  1.0.0
      *
      * @return Account
      */
     public function getChartOfAccounts()
     {
-        $organization = $this->organizationHandler->getOrganization();
+        $organization = $this->oh->getOrganization();
 
         if (!$organization->getChartOfAccounts()) {
             $chart = $this->createChartOfAccounts($organization);
@@ -92,7 +92,7 @@ class AccountHandler
      * Create new chart of accounts
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-19
+     * @since  1.0.0
      *
      * @param  OrganizationInterface $organization
      *
@@ -100,7 +100,7 @@ class AccountHandler
      */
     public function createChartOfAccounts(OrganizationInterface $organization)
     {
-        $account = $this->accountClassName;
+        $account = $this->accountFqcn;
 
         $chart = new $account($organization->getName());
         $organization->setChartOfAccounts($chart);
@@ -131,7 +131,7 @@ class AccountHandler
      * Create Account tree from segmentation
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-19
+     * @since  1.0.0
      *
      * @param  AccountInterface    $chart
      * @param  AccountSegmentation $segmentation
@@ -149,7 +149,7 @@ class AccountHandler
             $parent = $account;
 
             if (!$account = $account->findChildForName($segment)) {
-                $account = new $this->accountClassName($segment);
+                $account = new $this->accountFqcn($segment);
                 $parent->addChild($account);
             }
         }
@@ -161,7 +161,7 @@ class AccountHandler
      * Render Account tree as a multi-level array
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-26
+     * @since  1.0.0
      *
      * @param  AccountInterface $account
      *
