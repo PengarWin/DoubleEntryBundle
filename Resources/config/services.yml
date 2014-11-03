@@ -8,6 +8,7 @@ services:
     pengarwin.organization_handler:
         class: %pengarwin.organization_handler.class%
         arguments:
+            - %pengarwin.organization.class%
             - @security.context
             - @doctrine.orm.entity_manager
 

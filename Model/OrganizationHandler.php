@@ -13,10 +13,17 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * OrganizationHandler
  *
  * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
- * @since  2014-10-23
+ * @since  1.0.0
  */
 class OrganizationHandler implements OrganizationHandlerInterface
 {
+    /**
+     * Organization fully-qualified class name
+     *
+     * @var string
+     */
+    protected $organizationFqcn;
+
     /**
      * SecurityContext
      *
@@ -35,12 +42,13 @@ class OrganizationHandler implements OrganizationHandlerInterface
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-23
+     * @since  1.0.0
      *
      * @param  \Symfony\Component\Security\Core\SecurityContext $securityContext
      * @param  \Doctrine\ORM\EntityManager $em
      */
     public function __construct(
+        $organizationFqcn,
         \Symfony\Component\Security\Core\SecurityContext $securityContext,
         \Doctrine\ORM\EntityManager $em
     )
@@ -53,7 +61,7 @@ class OrganizationHandler implements OrganizationHandlerInterface
      * Get the Organization for the current context
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-23
+     * @since  1.0.0
      *
      * @return Organization
      */
@@ -62,29 +70,16 @@ class OrganizationHandler implements OrganizationHandlerInterface
         return $this->getUser()->getDefaultOrganization();
     }
 
-   /**
-    * Get current User
-    *
-    * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-    * @since  2014-10-23
-    *
-    * @return User
-    */
-    public function getUser()
-    {
-        return $this->securityContext->getToken()->getUser();
-    }
-
     /**
-     * Find Vendor for given slug
+     * Get current User
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-27
+     * @since  1.0.0
      *
-     * @param  string
+     * @return User
      */
-    public function findVendorForSlug($slug)
+    protected function getUser()
     {
-        return $this->getOrganization()->findVendorForSlug($slug);
+        return $this->securityContext->getToken()->getUser();
     }
 }
