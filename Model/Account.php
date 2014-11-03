@@ -101,11 +101,6 @@ abstract class Account
     protected $path;
 
     /**
-     * @var ArrayCollection|ChequeInterface
-     */
-    protected $cheques;
-
-    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", name="created_at")
      */
@@ -133,7 +128,6 @@ abstract class Account
 
         $this->postings = new ArrayCollection();
         $this->children = new ArrayCollection();
-        $this->cheques  = new ArrayCollection();
     }
 
     /**
@@ -661,49 +655,6 @@ abstract class Account
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Add cheque
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-13
-     *
-     * @param  ChequeInterface $cheque
-     *
-     * @return Account
-     */
-    public function addCheque(ChequeInterface $cheque)
-    {
-        $this->cheques->add($cheque);
-
-        return $this;
-    }
-
-    /**
-     * Remove cheque
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-13
-     *
-     * @param  ChequeInterface $cheque
-     */
-    public function removeCheque(ChequeInterface $cheque)
-    {
-        $this->cheques->remove($cheque);
-    }
-
-    /**
-     * Get cheques
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-13
-     *
-     * @return ArrayCollection|Cheque
-     */
-    public function getCheques()
-    {
-        return $this->cheques;
     }
 
     /**
