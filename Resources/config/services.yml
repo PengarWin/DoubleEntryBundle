@@ -1,6 +1,7 @@
 parameters:
     pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
     pengarwin.account_handler.class:      PengarWin\DoubleEntryBundle\Model\AccountHandler
+    pengarwin.account_selector.class:     PengarWin\DoubleEntryBundle\Form\Type\AccountSelectorType
     pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
     pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
 
@@ -32,3 +33,10 @@ services:
             - @pengarwin.vendor_handler
         tags:
             - { name: form.type, alias: vendor_selector }
+
+    pengarwin.type.account_selector:
+        class: %pengarwin.account_selector.class%
+        arguments:
+            - @pengarwin.account_handler
+        tags:
+            - { name: form.type, alias: account_selector }

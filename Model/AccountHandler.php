@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\Criteria;
  *
  * @ORM\MappedSuperclass
  */
-class AccountHandler
+class AccountHandler implements AccountHandlerInterface
 {
     /**
      * Account class name
@@ -128,6 +128,44 @@ class AccountHandler
     }
 
     /**
+     * Find Account for segmentation
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     *
+     * @param  string $segmentation
+     */
+    public function findAccountForSegmentation($segmentation)
+    {
+        return $this->em
+            ->getRepository($this->accountFqcn)
+            ->findOneBy(array(
+                'segmentation' => $segmentation,
+                'organization' => $this->oh->getOrganization()
+            ))
+        ;
+    }
+
+    /**
+     * Find Account for path
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     *
+     * @param  string $path
+     */
+    public function findAccountForPath($path)
+    {
+        return $this->em
+            ->getRepository($this->accountFqcn)
+            ->findOneBy(array(
+                'path' => $path,
+                'organization' => $this->oh->getOrganization()
+            ))
+        ;
+    }
+
+    /**
      * Create Account tree from segmentation
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
@@ -153,6 +191,24 @@ class AccountHandler
                 $parent->addChild($account);
             }
         }
+
+        return $account;
+    }
+
+    /**
+     * Create new Account
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  string  $name
+     *
+     * @return Account
+     */
+    public function createAccount($name = null)
+    {
+        $account = new $this->accountFqcn($name);
+        $account->setOrganization($this->oh->getOrganization());
 
         return $account;
     }

@@ -48,16 +48,6 @@ abstract class Journal
     protected $vendor;
 
     /**
-     * @var string
-     */
-    protected $proposedVendorName = '';
-
-    /**
-     * @var string
-     */
-    protected $proposedOffsetAccountSegmentation = '';
-
-    /**
      * Do not map in sub class
      *
      * @var float
@@ -560,66 +550,6 @@ abstract class Journal
     public function getVendor()
     {
         return $this->vendor;
-    }
-
-    /**
-     * Set proposedVendorName
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-16
-     *
-     * @param  string $proposedVendorName
-     *
-     * @return Journal
-     */
-    public function setProposedVendorName($proposedVendorName)
-    {
-        $this->proposedVendorName = $proposedVendorName;
-
-        return $this;
-    }
-
-    /**
-     * Get proposedVendorName
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-16
-     *
-     * @return string
-     */
-    public function getProposedVendorName()
-    {
-        return $this->proposedVendorName;
-    }
-
-    /**
-     * Set proposedOffsetAccountSegmentation
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-16
-     *
-     * @param  string $proposedOffsetAccountSegmentation
-     *
-     * @return Journal
-     */
-    public function setProposedOffsetAccountSegmentation($proposedOffsetAccountSegmentation)
-    {
-        $this->proposedOffsetAccountSegmentation = $proposedOffsetAccountSegmentation;
-
-        return $this;
-    }
-
-    /**
-     * Get proposedOffsetAccountSegmentation
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-16
-     *
-     * @return string
-     */
-    public function getProposedOffsetAccountSegmentation()
-    {
-        return $this->proposedOffsetAccountSegmentation;
     }
 
     /**

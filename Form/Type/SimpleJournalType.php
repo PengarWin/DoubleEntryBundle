@@ -48,11 +48,7 @@ class SimpleJournalType extends AbstractType
                     'size' => 10,
                 )
             ))
-            ->add('proposedOffsetAccountSegmentation', null, array(
-                'attr' => array(
-                    'size' => 10,
-                )
-            ))
+            ->add('offsetAccount', 'account_selector')
             ->add('creditAmount', 'number', array(
                 'attr' => array(
                     'size' => 2,
