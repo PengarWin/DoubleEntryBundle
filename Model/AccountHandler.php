@@ -67,6 +67,19 @@ class AccountHandler implements AccountHandlerInterface
     }
 
     /**
+     * Get repository
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     */
+    protected function getRepository()
+    {
+        return $this->em
+            ->getRepository($this->accountFqcn)
+        ;
+    }
+
+    /**
      * Get chart of accounts for current Organization
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
@@ -137,13 +150,10 @@ class AccountHandler implements AccountHandlerInterface
      */
     public function findAccountForSegmentation($segmentation)
     {
-        return $this->em
-            ->getRepository($this->accountFqcn)
-            ->findOneBy(array(
-                'segmentation' => $segmentation,
-                'organization' => $this->oh->getOrganization()
-            ))
-        ;
+        return $this->getRepository()->findOneBy(array(
+            'segmentation' => $segmentation,
+            'organization' => $this->oh->getOrganization()
+        ));
     }
 
     /**
@@ -156,13 +166,10 @@ class AccountHandler implements AccountHandlerInterface
      */
     public function findAccountForPath($path)
     {
-        return $this->em
-            ->getRepository($this->accountFqcn)
-            ->findOneBy(array(
-                'path' => $path,
-                'organization' => $this->oh->getOrganization()
-            ))
-        ;
+        return $this->getRepository()->findOneBy(array(
+            'path' => $path,
+            'organization' => $this->oh->getOrganization()
+        ));
     }
 
     /**
