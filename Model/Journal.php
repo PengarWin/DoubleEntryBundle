@@ -12,7 +12,6 @@ namespace PengarWin\DoubleEntryBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
-use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
 use PengarWin\DoubleEntryBundle\Exception\NotSimpleJournalException;
 
 /**
@@ -169,30 +168,6 @@ abstract class Journal
     public function getOffsetAccount()
     {
         return $this->offsetAccount;
-    }
-
-    /**
-     * Ensure zero sum - the amount of all Postings must add up to zero
-     *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
-     * @since  2014-10-11
-     *
-     * @ORM\PrePersist
-     */
-    public function ensureZeroSumOfPostings()
-    {
-        $postingBalance = 0;
-
-        foreach ($this->getPostings() as $posting) {
-            $postingBalance += $posting->getAmount();
-        }
-
-        if (0.00001 < abs($postingBalance)) {
-            throw new JournalImbalanceException(sprintf(
-                'Posting balance must be zero; %f given',
-                $postingBalance
-            ));
-        }
     }
 
     /**

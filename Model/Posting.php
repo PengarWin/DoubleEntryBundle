@@ -12,6 +12,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
 
 /**
  * Posting
@@ -354,6 +355,31 @@ abstract class Posting
     {
         if (-0.00001 > $this->getAmount()) {
             return abs($this->getAmount());
+        }
+    }
+
+    /**
+     * Ensure zero sum - the amount of all Postings must add up to zero
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function ensureZeroSumOfPostings()
+    {
+        $postingBalance = 0;
+
+        foreach ($this->getJournal()->getPostings() as $posting) {
+            $postingBalance += $posting->getAmount();
+        }
+
+        if (0.00001 < abs($postingBalance)) {
+            throw new JournalImbalanceException(sprintf(
+                'Posting balance must be zero; %f given',
+                $postingBalance
+            ));
         }
     }
 }
