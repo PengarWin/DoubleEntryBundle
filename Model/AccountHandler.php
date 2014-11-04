@@ -67,6 +67,17 @@ class AccountHandler implements AccountHandlerInterface
     }
 
     /**
+     * Get accountFqcn
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     */
+    public function getAccountFqcn()
+    {
+        return $this->accountFqcn;
+    }
+
+    /**
      * Get repository
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
@@ -166,10 +177,22 @@ class AccountHandler implements AccountHandlerInterface
      */
     public function findAccountForPath($path)
     {
-        return $this->getRepository()->findOneBy(array(
-            'path' => $path,
-            'organization' => $this->oh->getOrganization()
-        ));
+        $dql = '
+            SELECT a,p,j,op
+            FROM   %s a
+            JOIN   a.postings p
+            JOIN   p.journal j
+            JOIN   j.postings op
+            WHERE  a.path = :path
+            AND    a.organization = :organization
+        ';
+
+        return $this->em
+            ->createQuery(sprintf($dql, $this->accountFqcn))
+            ->setParameter('path', $path)
+            ->setParameter('organization', $this->oh->getOrganization())
+            ->getSingleResult()
+        ;
     }
 
     /**

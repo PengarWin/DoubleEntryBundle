@@ -5,6 +5,8 @@ parameters:
     pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
     pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
 
+    pengarwin.account_param_converter.class: PengarWin\DoubleEntryBundle\Request\ParamConverter\AccountParamConverter
+
 services:
     pengarwin.organization_handler:
         class: %pengarwin.organization_handler.class%
@@ -40,3 +42,10 @@ services:
             - @pengarwin.account_handler
         tags:
             - { name: form.type, alias: account_selector }
+
+    pengarwin.account_param_converter:
+        class:     %pengarwin.account_param_converter.class%
+        arguments:
+            - @pengarwin.account_handler
+        tags:
+            - { name: request.param_converter, converter: account, priority: 10 }

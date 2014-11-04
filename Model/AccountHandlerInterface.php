@@ -18,6 +18,14 @@ namespace PengarWin\DoubleEntryBundle\Model;
 interface AccountHandlerInterface
 {
     /**
+     * Get accountFqcn
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     */
+    public function getAccountFqcn();
+
+    /**
      * Create new Account
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
