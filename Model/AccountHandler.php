@@ -178,13 +178,13 @@ class AccountHandler implements AccountHandlerInterface
     public function findAccountForPath($path)
     {
         $dql = '
-            SELECT a,p,j,op
-            FROM   %s a
-            JOIN   a.postings p
-            JOIN   p.journal j
-            JOIN   j.postings op
-            WHERE  a.path = :path
-            AND    a.organization = :organization
+            SELECT    a,p,j,op
+            FROM      %s a
+            LEFT JOIN a.postings p
+            LEFT JOIN p.journal j
+            LEFT JOIN j.postings op
+            WHERE     a.path = :path
+            AND       a.organization = :organization
         ';
 
         return $this->em
