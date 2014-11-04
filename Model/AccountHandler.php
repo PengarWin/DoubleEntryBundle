@@ -173,6 +173,19 @@ class AccountHandler implements AccountHandlerInterface
     }
 
     /**
+     * Get path for tree
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  1.0.0
+     *
+     * @param  string $path
+     */
+    public function getTreePath($account)
+    {
+        return $this->getRepository()->getPath($account);
+    }
+
+    /**
      * Create Account tree from segmentation
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
