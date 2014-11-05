@@ -54,6 +54,7 @@ class VendorSelectorType extends AbstractType
     {
         $resolver->setDefaults(array(
             'invalid_message' => 'The selected vendor does not exist',
+            'attr' => array('class' => $this->getName()),
         ));
     }
 
