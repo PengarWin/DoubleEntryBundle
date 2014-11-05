@@ -56,6 +56,7 @@ class AccountSelectorType extends AbstractType
     {
         $resolver->setDefaults(array(
             'invalid_message' => 'The selected account does not exist',
+            'attr' => array('class' => $this->getName()),
         ));
     }
 
