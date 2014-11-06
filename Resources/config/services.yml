@@ -6,10 +6,12 @@ parameters:
     pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
 
     pengarwin.journal_handler.class :     PengarWin\DoubleEntryBundle\Model\JournalHandler
+    pengarwin.posting_handler.class :     PengarWin\DoubleEntryBundle\Model\PostingHandler
 
     pengarwin.account_param_converter.class: PengarWin\DoubleEntryBundle\Request\ParamConverter\AccountParamConverter
 
     pengarwin.form.type.journal.class:    PengarWin\DoubleEntryBundle\Form\Type\JournalType
+    pengarwin.form.type.posting.class:    PengarWin\DoubleEntryBundle\Form\Type\PostingType
 
 services:
     pengarwin.organization_handler:
@@ -37,6 +39,13 @@ services:
         class: %pengarwin.journal_handler.class%
         arguments:
             - %pengarwin.journal.class%
+            - @pengarwin.organization_handler
+            - @doctrine.orm.entity_manager
+
+    pengarwin.posting_handler:
+        class: %pengarwin.posting_handler.class%
+        arguments:
+            - %pengarwin.posting.class%
             - @pengarwin.organization_handler
             - @doctrine.orm.entity_manager
 
@@ -68,3 +77,10 @@ services:
             - @pengarwin.journal_handler
         tags:
             - { name: form.type, alias: journal }
+
+    pengarwin.form.type.posting:
+        class: %pengarwin.form.type.posting.class%
+        arguments:
+            - @pengarwin.posting_handler
+        tags:
+            - { name: form.type, alias: posting }

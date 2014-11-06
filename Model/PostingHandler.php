@@ -1,0 +1,130 @@
+<?php
+
+/*
+ * This file is part of the PengarWin DoubleEntryBundle package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace PengarWin\DoubleEntryBundle\Model;
+
+/**
+ * PostingHandler
+ *
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+ * @since  1.0.0
+ */
+class PostingHandler implements PostingHandlerInterface
+{
+    /**
+     * Posting class name
+     *
+     * @var string
+     */
+    protected $postingFqcn;
+
+    /**
+     * OrganizationHandler
+     *
+     * @var OrganizationHandlerInterface
+     */
+    protected $oh;
+
+    /**
+     * EntityManager
+     *
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
+    /**
+     * __construct()
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  string $postingFqcn
+     * @param  OrganizationHandlerInterface $oh
+     * @param  \Doctrine\ORM\EntityManager $em
+     */
+    public function __construct(
+        $postingFqcn,
+        OrganizationHandlerInterface $oh,
+        \Doctrine\ORM\EntityManager $em
+    )
+    {
+        $this->postingFqcn = $postingFqcn;
+        $this->oh = $oh;
+        $this->em = $em;
+    }
+
+    /**
+     * Get postingFqcn
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @return string
+     */
+    public function getPostingFqcn()
+    {
+        return $this->postingFqcn;
+    }
+
+    /**
+     * Get repository
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     */
+    protected function getRepository()
+    {
+        return $this->em
+            ->getRepository($this->postingFqcn)
+        ;
+    }
+
+    /**
+     * Find Posting for id
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  int $id
+     *
+     * @return Posting
+     */
+    public function findPostingForId($id)
+    {
+        $dql = '
+            SELECT    p
+            FROM      %s p
+            WHERE     p.id = :id
+            AND       p.organization = :organization
+        ';
+
+        return $this->em
+            ->createQuery(sprintf($dql, $this->postingFqcn))
+            ->setParameter('id', $id)
+            ->setParameter('organization', $this->oh->getOrganization())
+            ->getSingleResult()
+        ;
+    }
+
+    /**
+     * Create new Posting
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @return Posting
+     */
+    public function createPosting()
+    {
+        $posting = new $this->postingFqcn();
+        $posting->setOrganization($this->oh->getOrganization());
+
+        return $posting;
+    }
+}

@@ -12,22 +12,22 @@ namespace PengarWin\DoubleEntryBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use PengarWin\DoubleEntryBundle\Model\JournalHandlerInterface;
+use PengarWin\DoubleEntryBundle\Model\PostingHandlerInterface;
 
 /**
- * JournalType
+ * PostingType
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  1.0.0
  */
-class JournalType extends AbstractType
+class PostingType extends AbstractType
 {
     /**
-     * JournalHandler
+     * PostingHandler
      *
-     * @var JournalHandlerInterface
+     * @var PostingHandlerInterface
      */
-    protected $jh;
+    protected $ph;
 
     /**
      * __construct()
@@ -35,11 +35,11 @@ class JournalType extends AbstractType
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  1.0.0
      *
-     * @param  JournalHandlerInterface $jh
+     * @param  PostingHandlerInterface $ph
      */
-    public function __construct(JournalHandlerInterface $jh)
+    public function __construct(PostingHandlerInterface $ph)
     {
-        $this->jh = $jh;
+        $this->ph = $ph;
     }
 
     /**
@@ -51,31 +51,15 @@ class JournalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', 'date', array(
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'attr' => array(
-                    'size' => 5,
-                )
-            ))
-            ->add('chequeNumber', 'number', array(
-                'required' => false,
-                'attr' => array(
-                    'size' => 1,
-                )
-            ))
-            ->add('vendor', 'vendor_selector')
-            ->add('description')
-            ->add('postings', 'collection', array('type' => 'posting'))
-            ->add('save', 'submit', array('label' => $options['label']))
-            ->setAction($options['action'])
+            ->add('account', 'account_selector')
+            ->add('amount')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->jh->getJournalFqcn(),
+            'data_class' => $this->ph->getPostingFqcn(),
         ));
     }
 
@@ -87,6 +71,6 @@ class JournalType extends AbstractType
      */
     public function getName()
     {
-        return 'journal';
+        return 'posting';
     }
 }
