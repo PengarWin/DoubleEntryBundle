@@ -100,9 +100,9 @@ class JournalHandler implements JournalHandlerInterface
         $dql = '
             SELECT    j,p
             FROM      %s p
-            LEFT JOIN a.postings p
-            WHERE     a.id = :id
-            AND       a.organization = :organization
+            LEFT JOIN j.postings p
+            WHERE     j.id = :id
+            AND       j.organization = :organization
         ';
 
         return $this->em
