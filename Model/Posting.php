@@ -17,7 +17,7 @@ use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
 /**
  * Posting
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-09
  *
  * @ORM\MappedSuperclass
@@ -28,6 +28,11 @@ abstract class Posting
      * id
      */
     protected $id;
+
+    /**
+     * @var OrganizationInterface
+     */
+    protected $organization;
 
     /**
      * @var AccountInterface
@@ -86,7 +91,7 @@ abstract class Posting
     /**
      * Get id
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return integer
@@ -97,9 +102,39 @@ abstract class Posting
     }
 
     /**
+     * Set organization
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  OrganizationInterface $organization
+     *
+     * @return Organization
+     */
+    public function setOrganization(OrganizationInterface $organization)
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @return Organization
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
+    }
+
+    /**
      * Set amount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  float $amount
@@ -112,7 +147,7 @@ abstract class Posting
     /**
      * Get amount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return float
@@ -125,7 +160,7 @@ abstract class Posting
     /**
      * Set calculatedBalance
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  float $calculatedBalance
@@ -138,7 +173,7 @@ abstract class Posting
     /**
      * Get calculatedBalance
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return float
@@ -151,7 +186,7 @@ abstract class Posting
     /**
      * Set account
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  AccountInterface $account
@@ -164,7 +199,7 @@ abstract class Posting
     /**
      * Get account
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return Account
@@ -177,7 +212,7 @@ abstract class Posting
     /**
      * Set journal
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  JournalInterface $journal
@@ -190,7 +225,7 @@ abstract class Posting
     /**
      * Get journal
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return Journal
@@ -203,7 +238,7 @@ abstract class Posting
     /**
      * Set createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  \DateTime $createdAt
@@ -220,7 +255,7 @@ abstract class Posting
     /**
      * Get createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -233,7 +268,7 @@ abstract class Posting
     /**
      * Set updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param \DateTime $updatedAt
@@ -250,7 +285,7 @@ abstract class Posting
     /**
      * Get updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -263,7 +298,7 @@ abstract class Posting
     /**
      * Set postedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  \DateTime $postedAt
@@ -280,7 +315,7 @@ abstract class Posting
     /**
      * Get postedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -293,7 +328,7 @@ abstract class Posting
     /**
      * post()
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      */
     public function post()
@@ -311,7 +346,7 @@ abstract class Posting
      * If this Posting's Journal has only two Postings, then return the offset
      * Posting
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      * @todo   Use better Exception class
      *
@@ -331,7 +366,7 @@ abstract class Posting
     /**
      * Get creditAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return float
@@ -346,7 +381,7 @@ abstract class Posting
     /**
      * Get debitAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return float

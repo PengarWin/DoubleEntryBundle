@@ -30,6 +30,11 @@ abstract class Journal
     protected $id;
 
     /**
+     * @var OrganizationInterface
+     */
+    protected $organization;
+
+    /**
      * @var ArrayCollection|PostingInterface
      */
     protected $postings;
@@ -115,6 +120,36 @@ abstract class Journal
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set organization
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @param  OrganizationInterface $organization
+     *
+     * @return Organization
+     */
+    public function setOrganization(OrganizationInterface $organization)
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  1.0.0
+     *
+     * @return Organization
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
     }
 
     /**
