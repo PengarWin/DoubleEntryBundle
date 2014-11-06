@@ -5,7 +5,11 @@ parameters:
     pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
     pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
 
+    pengarwin.journal_handler.class :     PengarWin\DoubleEntryBundle\Model\JournalHandler
+
     pengarwin.account_param_converter.class: PengarWin\DoubleEntryBundle\Request\ParamConverter\AccountParamConverter
+
+    pengarwin.form.type.journal.class:    PengarWin\DoubleEntryBundle\Form\Type\JournalType
 
 services:
     pengarwin.organization_handler:
@@ -29,6 +33,13 @@ services:
             - @pengarwin.organization_handler
             - @doctrine.orm.entity_manager
 
+    pengarwin.journal_handler:
+        class: %pengarwin.journal_handler.class%
+        arguments:
+            - %pengarwin.journal.class%
+            - @pengarwin.organization_handler
+            - @doctrine.orm.entity_manager
+
     pengarwin.type.vendor_selector:
         class: %pengarwin.vendor_selector.class%
         arguments:
@@ -49,3 +60,11 @@ services:
             - @pengarwin.account_handler
         tags:
             - { name: request.param_converter, converter: account, priority: 10 }
+
+
+    pengarwin.form.type.journal:
+        class: %pengarwin.form.type.journal.class%
+        arguments:
+            - @pengarwin.journal_handler
+        tags:
+            - { name: form.type, alias: journal }
