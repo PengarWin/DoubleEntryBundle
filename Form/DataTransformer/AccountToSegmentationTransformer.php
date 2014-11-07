@@ -78,8 +78,8 @@ class AccountToSegmentationTransformer implements DataTransformerInterface
 
         $account = $this->ah->findAccountForSegmentation($segmentation);
 
-        if (null === $segmentation) {
-            $account = $this->ah->createAccountForSegmentation($segmentation);
+        if (null === $account) {
+            $account = $this->ah->createAccountsFromSegmentation($segmentation);
         }
 
         return $account;

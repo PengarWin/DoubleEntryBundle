@@ -217,19 +217,16 @@ class AccountHandler implements AccountHandlerInterface
      * @param  AccountInterface    $chart
      * @param  AccountSegmentation $segmentation
      */
-    public function getAccountFromSegmentation(
-        AccountInterface $chart,
-        $segmentation
-    )
+    public function createAccountsFromSegmentation($segmentation)
     {
         $segments = explode(':', $segmentation);
 
-        $account = $chart;
+        $account = $this->oh->getOrganization()->getChartOfAccounts();
 
         foreach ($segments as $segment) {
             $parent = $account;
 
-            if (!$account = $account->findChildForName($segment)) {
+            if (!$account = $account->getChildForName($segment)) {
                 $account = new $this->accountFqcn($segment);
                 $parent->addChild($account);
             }

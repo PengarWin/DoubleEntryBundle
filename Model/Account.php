@@ -693,7 +693,7 @@ abstract class Account
     }
 
     /**
-     * Find a child account by name
+     * Get a child account by name
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2014-10-19
@@ -702,7 +702,7 @@ abstract class Account
      *
      * @return Account
      */
-    public function findChildForName($name)
+    public function getChildForName($name)
     {
         $criteria = Criteria::create()
             ->where(Criteria::expr()->eq('name', $name))
