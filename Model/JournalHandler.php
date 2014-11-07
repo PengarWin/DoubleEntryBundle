@@ -99,7 +99,7 @@ class JournalHandler implements JournalHandlerInterface
     {
         $dql = '
             SELECT    j,p
-            FROM      %s p
+            FROM      %s j
             LEFT JOIN j.postings p
             WHERE     j.id = :id
             AND       j.organization = :organization
