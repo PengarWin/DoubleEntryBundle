@@ -12,7 +12,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
 /**
  * VendorInterface
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-13
  */
 interface VendorInterface

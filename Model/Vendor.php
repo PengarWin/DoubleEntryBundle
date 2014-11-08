@@ -16,7 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Vendor
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-13
  *
  * @ORM\MappedSuperclass
@@ -84,7 +84,7 @@ abstract class Vendor
     /**
      * __construct()
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  string $name
@@ -101,7 +101,7 @@ abstract class Vendor
     /**
      * __toString()
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-14
      *
      * @return string
@@ -114,7 +114,7 @@ abstract class Vendor
     /**
      * Get id
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return integer
@@ -127,7 +127,7 @@ abstract class Vendor
     /**
      * Add journal
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  JournalInterface $journal
@@ -141,7 +141,7 @@ abstract class Vendor
     /**
      * Remove journal
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  JournalInterface $journal
@@ -154,7 +154,7 @@ abstract class Vendor
     /**
      * Get journals
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return ArrayCollection|Journal
@@ -167,7 +167,7 @@ abstract class Vendor
     /**
      * Set name
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  string $name
@@ -184,7 +184,7 @@ abstract class Vendor
     /**
      * Get name
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return string
@@ -197,7 +197,7 @@ abstract class Vendor
     /**
      * Set slug
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  string $slug
@@ -214,7 +214,7 @@ abstract class Vendor
     /**
      * Get slug
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return string
@@ -227,7 +227,7 @@ abstract class Vendor
     /**
      * Set createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param  \DateTime $createdAt
@@ -244,7 +244,7 @@ abstract class Vendor
     /**
      * Get createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return \DateTime
@@ -257,7 +257,7 @@ abstract class Vendor
     /**
      * Set updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @param \DateTime $updatedAt
@@ -274,7 +274,7 @@ abstract class Vendor
     /**
      * Get updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return \DateTime
@@ -287,7 +287,7 @@ abstract class Vendor
     /**
      * Set defaultOffsetAccount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  AccountInterface $defaultOffsetAccount
@@ -300,7 +300,7 @@ abstract class Vendor
     /**
      * Get defaultOffsetAccount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return Account
@@ -313,7 +313,7 @@ abstract class Vendor
     /**
      * Set defaultJournalDescription
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @param  string $defaultJournalDescription
@@ -330,7 +330,7 @@ abstract class Vendor
     /**
      * Get defaultJournalDescription
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @return string
@@ -343,7 +343,7 @@ abstract class Vendor
     /**
      * Set defaultJournalCreditAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @param  float $defaultJournalCreditAmount
@@ -356,7 +356,7 @@ abstract class Vendor
     /**
      * Get defaultJournalCreditAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @return float
@@ -369,7 +369,7 @@ abstract class Vendor
     /**
      * Set defaultJournalDebitAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @param  float $defaultJournalDebitAmount
@@ -382,7 +382,7 @@ abstract class Vendor
     /**
      * Get defaultJournalDebitAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-22
      *
      * @return float
@@ -395,7 +395,7 @@ abstract class Vendor
     /**
      * Set organization
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-27
      *
      * @param  OrganizationInterface $organization
@@ -412,7 +412,7 @@ abstract class Vendor
     /**
      * Get organization
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-27
      *
      * @return Organization

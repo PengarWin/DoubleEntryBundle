@@ -12,7 +12,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
 /**
  * PostingInterface
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-09
  */
 interface PostingInterface

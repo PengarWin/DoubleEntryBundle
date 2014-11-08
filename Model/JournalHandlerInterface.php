@@ -20,7 +20,7 @@ interface JournalHandlerInterface
     /**
      * Get accountFqcn
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  1.0.0
      */
     public function getJournalFqcn();

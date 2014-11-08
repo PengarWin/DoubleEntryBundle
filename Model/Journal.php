@@ -17,7 +17,7 @@ use PengarWin\DoubleEntryBundle\Exception\NotSimpleJournalException;
 /**
  * Journal
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-09
  *
  * @ORM\MappedSuperclass
@@ -100,7 +100,7 @@ abstract class Journal
     /**
      * __construct()
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      */
     public function __construct()
@@ -112,7 +112,7 @@ abstract class Journal
     /**
      * Get id
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return integer
@@ -155,7 +155,7 @@ abstract class Journal
     /**
      * Add posting
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  PostingInterface $posting
@@ -169,7 +169,7 @@ abstract class Journal
     /**
      * Get postings
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return ArrayCollection|Posting
@@ -182,7 +182,7 @@ abstract class Journal
     /**
      * Set offsetAccount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  AccountInterface $offsetAccount
@@ -195,7 +195,7 @@ abstract class Journal
     /**
      * Get offsetAccount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return Account
@@ -208,7 +208,7 @@ abstract class Journal
     /**
      * Remove posting
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  PostingInterface $posting
@@ -221,7 +221,7 @@ abstract class Journal
     /**
      * Set description
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  string $description
@@ -238,7 +238,7 @@ abstract class Journal
     /**
      * Get description
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return string
@@ -251,7 +251,7 @@ abstract class Journal
     /**
      * Set date
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param \DateTime $date
@@ -268,7 +268,7 @@ abstract class Journal
     /**
      * Get date
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -281,7 +281,7 @@ abstract class Journal
     /**
      * Set createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  \DateTime $createdAt
@@ -298,7 +298,7 @@ abstract class Journal
     /**
      * Get createdAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -311,7 +311,7 @@ abstract class Journal
     /**
      * Set updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param \DateTime $updatedAt
@@ -328,7 +328,7 @@ abstract class Journal
     /**
      * Get updatedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -341,7 +341,7 @@ abstract class Journal
     /**
      * Set postedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @param  \DateTime $postedAt
@@ -358,7 +358,7 @@ abstract class Journal
     /**
      * Get postedAt
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-11
      *
      * @return \DateTime
@@ -373,7 +373,7 @@ abstract class Journal
      *
      * Post all Postings for this Journal
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2013-02-09
      */
     public function post()
@@ -393,7 +393,7 @@ abstract class Journal
      * Debits the given account by the given account. Takes into account
      * what type of account it is (Asset, Liability, Income, Expense)
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2013-03-20
      *
      * @param  \HarvestCloud\CoreBundle\Entity\Account $account
@@ -423,7 +423,7 @@ abstract class Journal
      * Credits the given account by the given account. Takes into account
      * what type of account it is (Asset, Liability, Income, Expense)
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2013-03-20
      *
      * @param  \HarvestCloud\CoreBundle\Entity\Account $account
@@ -450,7 +450,7 @@ abstract class Journal
     /**
      * Set creditAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-12
      *
      * @param  float $creditAmount
@@ -463,7 +463,7 @@ abstract class Journal
     /**
      * Get creditAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-12
      *
      * @return float
@@ -476,7 +476,7 @@ abstract class Journal
     /**
      * Set debitAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-12
      *
      * @param  float $debitAmount
@@ -489,7 +489,7 @@ abstract class Journal
     /**
      * Get debitAmount
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-12
      *
      * @return float
@@ -503,7 +503,7 @@ abstract class Journal
      * Assert that this Journal is a simple Journal, i.e. has exactly two
      * Postings
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      */
     public function assertIsSimpleJournal()
@@ -520,7 +520,7 @@ abstract class Journal
      * Checks whether this Journal is a simple Journal, i.e. has exactly two
      * Postings
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-13
      *
      * @return bool
@@ -539,7 +539,7 @@ abstract class Journal
     /**
      * Set vendor
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-14
      *
      * @param  VendorInterface $vendor
@@ -552,7 +552,7 @@ abstract class Journal
     /**
      * Get vendor
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-14
      *
      * @return Vendor
@@ -565,7 +565,7 @@ abstract class Journal
     /**
      * Set chequeNumber
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-26
      *
      * @param  int $chequeNumber
@@ -582,7 +582,7 @@ abstract class Journal
     /**
      * Get chequeNumber
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-26
      *
      * @return int

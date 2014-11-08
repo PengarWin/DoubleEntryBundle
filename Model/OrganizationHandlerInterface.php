@@ -12,7 +12,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
 /**
  * OrganizationHandlerInterface
  *
- * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+ * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  2014-10-26
  */
 interface OrganizationHandlerInterface
@@ -20,7 +20,7 @@ interface OrganizationHandlerInterface
     /**
      * Get the Organization for the current context
      *
-     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  2014-10-23
      *
      * @return Organization
