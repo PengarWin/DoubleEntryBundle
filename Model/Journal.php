@@ -18,7 +18,7 @@ use PengarWin\DoubleEntryBundle\Exception\NotSimpleJournalException;
  * Journal
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-09
+ * @since  0.8.0
  *
  * @ORM\MappedSuperclass
  */
@@ -101,7 +101,7 @@ abstract class Journal
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      */
     public function __construct()
     {
@@ -113,7 +113,7 @@ abstract class Journal
      * Get id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -126,7 +126,7 @@ abstract class Journal
      * Set organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  OrganizationInterface $organization
      *
@@ -143,7 +143,7 @@ abstract class Journal
      * Get organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Organization
      */
@@ -156,7 +156,7 @@ abstract class Journal
      * Add posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  PostingInterface $posting
      */
@@ -170,7 +170,7 @@ abstract class Journal
      * Get postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return ArrayCollection|Posting
      */
@@ -183,7 +183,7 @@ abstract class Journal
      * Set offsetAccount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  AccountInterface $offsetAccount
      */
@@ -196,7 +196,7 @@ abstract class Journal
      * Get offsetAccount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return Account
      */
@@ -209,7 +209,7 @@ abstract class Journal
      * Remove posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  PostingInterface $posting
      */
@@ -222,7 +222,7 @@ abstract class Journal
      * Set description
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  string $description
      *
@@ -239,7 +239,7 @@ abstract class Journal
      * Get description
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return string
      */
@@ -252,7 +252,7 @@ abstract class Journal
      * Set date
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param \DateTime $date
      *
@@ -269,7 +269,7 @@ abstract class Journal
      * Get date
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -282,7 +282,7 @@ abstract class Journal
      * Set createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  \DateTime $createdAt
      *
@@ -299,7 +299,7 @@ abstract class Journal
      * Get createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -312,7 +312,7 @@ abstract class Journal
      * Set updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param \DateTime $updatedAt
      *
@@ -329,7 +329,7 @@ abstract class Journal
      * Get updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -342,7 +342,7 @@ abstract class Journal
      * Set postedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  \DateTime $postedAt
      *
@@ -359,7 +359,7 @@ abstract class Journal
      * Get postedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -374,7 +374,7 @@ abstract class Journal
      * Post all Postings for this Journal
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2013-02-09
+     * @since  0.8.0
      */
     public function post()
     {
@@ -394,7 +394,7 @@ abstract class Journal
      * what type of account it is (Asset, Liability, Income, Expense)
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2013-03-20
+     * @since  0.8.0
      *
      * @param  \HarvestCloud\CoreBundle\Entity\Account $account
      * @param  decimal $amount
@@ -424,7 +424,7 @@ abstract class Journal
      * what type of account it is (Asset, Liability, Income, Expense)
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2013-03-20
+     * @since  0.8.0
      *
      * @param  \HarvestCloud\CoreBundle\Entity\Account $account
      * @param  decimal $amount
@@ -451,7 +451,7 @@ abstract class Journal
      * Set creditAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-12
+     * @since  0.8.0
      *
      * @param  float $creditAmount
      */
@@ -464,7 +464,7 @@ abstract class Journal
      * Get creditAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-12
+     * @since  0.8.0
      *
      * @return float
      */
@@ -477,7 +477,7 @@ abstract class Journal
      * Set debitAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-12
+     * @since  0.8.0
      *
      * @param  float $debitAmount
      */
@@ -490,7 +490,7 @@ abstract class Journal
      * Get debitAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-12
+     * @since  0.8.0
      *
      * @return float
      */
@@ -504,7 +504,7 @@ abstract class Journal
      * Postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      */
     public function assertIsSimpleJournal()
     {
@@ -521,7 +521,7 @@ abstract class Journal
      * Postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      *
      * @return bool
      */
@@ -540,7 +540,7 @@ abstract class Journal
      * Set vendor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-14
+     * @since  0.8.0
      *
      * @param  VendorInterface $vendor
      */
@@ -553,7 +553,7 @@ abstract class Journal
      * Get vendor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-14
+     * @since  0.8.0
      *
      * @return Vendor
      */
@@ -566,7 +566,7 @@ abstract class Journal
      * Set chequeNumber
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-26
+     * @since  0.8.0
      *
      * @param  int $chequeNumber
      *
@@ -583,7 +583,7 @@ abstract class Journal
      * Get chequeNumber
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-26
+     * @since  0.8.0
      *
      * @return int
      */

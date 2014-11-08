@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Criteria;
  * Account
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-09
+ * @since  0.8.0
  *
  * @ORM\MappedSuperclass
  * @Gedmo\Tree(type="nested")
@@ -116,7 +116,7 @@ abstract class Account
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  string $name
      */
@@ -134,7 +134,7 @@ abstract class Account
      * __toString()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return string
      */
@@ -147,7 +147,7 @@ abstract class Account
      * Get id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return int
      */
@@ -160,7 +160,7 @@ abstract class Account
      * Set lft
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @param  integer $lft
      */
@@ -173,7 +173,7 @@ abstract class Account
      * Get lft
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -186,7 +186,7 @@ abstract class Account
      * Set lvl
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @param  integer $lvl
      */
@@ -199,7 +199,7 @@ abstract class Account
      * Get lvl
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -212,7 +212,7 @@ abstract class Account
      * Set rgt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @param  integer $rgt
      */
@@ -225,7 +225,7 @@ abstract class Account
      * Get rgt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -238,7 +238,7 @@ abstract class Account
      * Set root
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @param  integer $root
      */
@@ -251,7 +251,7 @@ abstract class Account
      * Get root
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -264,7 +264,7 @@ abstract class Account
      * Set parent
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @param  AccountInterface $parent
      *
@@ -281,7 +281,7 @@ abstract class Account
      * Get parent
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-10
+     * @since  0.8.0
      *
      * @return Account
      */
@@ -294,7 +294,7 @@ abstract class Account
      * Set organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-21
+     * @since  0.8.0
      *
      * @param  OrganizationInterface $organization
      *
@@ -311,7 +311,7 @@ abstract class Account
      * Get organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-21
+     * @since  0.8.0
      *
      * @return Organization
      */
@@ -324,7 +324,7 @@ abstract class Account
      * Add child
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  AccountInterface $child
      *
@@ -343,7 +343,7 @@ abstract class Account
      * Remove child
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  AccountInterface $child
      */
@@ -356,7 +356,7 @@ abstract class Account
      * Get children
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return ArrayCollection|Account
      */
@@ -369,7 +369,7 @@ abstract class Account
      * Add posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  PostingInterface $posting
      *
@@ -386,7 +386,7 @@ abstract class Account
      * Remove posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  PostingInterface $posting
      */
@@ -399,7 +399,7 @@ abstract class Account
      * Get postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return ArrayCollection|Posting
      */
@@ -412,7 +412,7 @@ abstract class Account
      * Set name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  string $name
      *
@@ -429,7 +429,7 @@ abstract class Account
      * Get name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return string
      */
@@ -442,7 +442,7 @@ abstract class Account
      * Set postedBalance
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  float $postedBalance
      *
@@ -459,7 +459,7 @@ abstract class Account
      * Get postedBalance
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return float
      */
@@ -472,7 +472,7 @@ abstract class Account
      * Set slug
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @param  string $slug
      *
@@ -489,7 +489,7 @@ abstract class Account
      * Get slug
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-09
+     * @since  0.8.0
      *
      * @return string
      */
@@ -502,7 +502,7 @@ abstract class Account
      * Set path
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  string $path
      *
@@ -519,7 +519,7 @@ abstract class Account
      * Get path
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return string
      */
@@ -532,7 +532,7 @@ abstract class Account
      * Set segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-17
+     * @since  0.8.0
      *
      * @param  string $segmentation
      *
@@ -549,7 +549,7 @@ abstract class Account
      * Get segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-17
+     * @since  0.8.0
      *
      * @return string
      */
@@ -562,7 +562,7 @@ abstract class Account
      * Generate slug, segmentation and path
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @ORM\PrePersist
      * @ORM\PreUpdate
@@ -601,7 +601,7 @@ abstract class Account
      * Set createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  \DateTime $createdAt
      *
@@ -618,7 +618,7 @@ abstract class Account
      * Get createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -631,7 +631,7 @@ abstract class Account
      * Set updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param \DateTime $updatedAt
      *
@@ -648,7 +648,7 @@ abstract class Account
      * Get updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -661,7 +661,7 @@ abstract class Account
      * Get posted Postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-15
+     * @since  0.8.0
      *
      * @return ArrayCollection|Posting
      */
@@ -679,7 +679,7 @@ abstract class Account
      * Get unposted Postings
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-15
+     * @since  0.8.0
      *
      * @return ArrayCollection|Posting
      */
@@ -696,7 +696,7 @@ abstract class Account
      * Get a child account by name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-19
+     * @since  0.8.0
      *
      * @param  string $name
      *

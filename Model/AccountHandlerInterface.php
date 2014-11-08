@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * AccountHandlerInterface
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 interface AccountHandlerInterface
 {
@@ -21,7 +21,7 @@ interface AccountHandlerInterface
      * Get accountFqcn
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getAccountFqcn();
 
@@ -29,7 +29,7 @@ interface AccountHandlerInterface
      * Create new Account
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Account
      */
@@ -39,7 +39,7 @@ interface AccountHandlerInterface
      * Find Account for segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $segmentation
      *
@@ -51,7 +51,7 @@ interface AccountHandlerInterface
      * Find Account for path
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $path
      *

@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * JournalHandler
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class JournalHandler implements JournalHandlerInterface
 {
@@ -42,7 +42,7 @@ class JournalHandler implements JournalHandlerInterface
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $journalFqcn
      * @param  OrganizationHandlerInterface $oh
@@ -63,7 +63,7 @@ class JournalHandler implements JournalHandlerInterface
      * Get journalFqcn
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return string
      */
@@ -76,7 +76,7 @@ class JournalHandler implements JournalHandlerInterface
      * Get repository
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     protected function getRepository()
     {
@@ -89,7 +89,7 @@ class JournalHandler implements JournalHandlerInterface
      * Find Journal for id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  int $id
      *
@@ -117,7 +117,7 @@ class JournalHandler implements JournalHandlerInterface
      * Create new Journal
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Journal
      */

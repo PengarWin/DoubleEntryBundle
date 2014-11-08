@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * VendorHandlerInterface
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 interface VendorHandlerInterface
 {
@@ -21,7 +21,7 @@ interface VendorHandlerInterface
      * Create new Vendor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Vendor
      */
@@ -31,7 +31,7 @@ interface VendorHandlerInterface
      * Find Vendor for name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $name
      *
@@ -43,7 +43,7 @@ interface VendorHandlerInterface
      * Find Vendor for slug
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $slug
      *

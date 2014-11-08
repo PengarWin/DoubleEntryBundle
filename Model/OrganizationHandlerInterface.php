@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * OrganizationHandlerInterface
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-26
+ * @since  0.8.0
  */
 interface OrganizationHandlerInterface
 {
@@ -21,7 +21,7 @@ interface OrganizationHandlerInterface
      * Get the Organization for the current context
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-23
+     * @since  0.8.0
      *
      * @return Organization
      */

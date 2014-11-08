@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * JournalHandlerInterface
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 interface JournalHandlerInterface
 {
@@ -21,7 +21,7 @@ interface JournalHandlerInterface
      * Get accountFqcn
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getJournalFqcn();
 
@@ -29,7 +29,7 @@ interface JournalHandlerInterface
      * Create new Journal
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Journal
      */
@@ -39,7 +39,7 @@ interface JournalHandlerInterface
      * Find Journal for id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  int $id
      *

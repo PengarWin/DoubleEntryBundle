@@ -18,7 +18,7 @@ use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
  * Posting
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-09
+ * @since  0.8.0
  *
  * @ORM\MappedSuperclass
  */
@@ -77,7 +77,7 @@ abstract class Posting
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  AccountInterface $account
      * @param  float            $amount
@@ -92,7 +92,7 @@ abstract class Posting
      * Get id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return integer
      */
@@ -105,7 +105,7 @@ abstract class Posting
      * Set organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  OrganizationInterface $organization
      *
@@ -122,7 +122,7 @@ abstract class Posting
      * Get organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Organization
      */
@@ -135,7 +135,7 @@ abstract class Posting
      * Set amount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  float $amount
      */
@@ -148,7 +148,7 @@ abstract class Posting
      * Get amount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return float
      */
@@ -161,7 +161,7 @@ abstract class Posting
      * Set calculatedBalance
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      *
      * @param  float $calculatedBalance
      */
@@ -174,7 +174,7 @@ abstract class Posting
      * Get calculatedBalance
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      *
      * @return float
      */
@@ -187,7 +187,7 @@ abstract class Posting
      * Set account
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  AccountInterface $account
      */
@@ -200,7 +200,7 @@ abstract class Posting
      * Get account
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return Account
      */
@@ -213,7 +213,7 @@ abstract class Posting
      * Set journal
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  JournalInterface $journal
      */
@@ -226,7 +226,7 @@ abstract class Posting
      * Get journal
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return Journal
      */
@@ -239,7 +239,7 @@ abstract class Posting
      * Set createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  \DateTime $createdAt
      *
@@ -256,7 +256,7 @@ abstract class Posting
      * Get createdAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -269,7 +269,7 @@ abstract class Posting
      * Set updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param \DateTime $updatedAt
      *
@@ -286,7 +286,7 @@ abstract class Posting
      * Get updatedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -299,7 +299,7 @@ abstract class Posting
      * Set postedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @param  \DateTime $postedAt
      *
@@ -316,7 +316,7 @@ abstract class Posting
      * Get postedAt
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      *
      * @return \DateTime
      */
@@ -329,7 +329,7 @@ abstract class Posting
      * post()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-11
+     * @since  0.8.0
      */
     public function post()
     {
@@ -347,7 +347,7 @@ abstract class Posting
      * Posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      * @todo   Use better Exception class
      *
      * @return Posting
@@ -367,7 +367,7 @@ abstract class Posting
      * Get creditAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      *
      * @return float
      */
@@ -382,7 +382,7 @@ abstract class Posting
      * Get debitAmount
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-13
+     * @since  0.8.0
      *
      * @return float
      */
@@ -397,7 +397,7 @@ abstract class Posting
      * Ensure zero sum - the amount of all Postings must add up to zero
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @ORM\PrePersist
      * @ORM\PreUpdate

@@ -6,7 +6,7 @@ namespace PengarWin\DoubleEntryBundle\Exception;
  * JournalImbalanceException
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-11
+ * @since  0.8.0
  */
 class JournalImbalanceException extends \Exception
 {

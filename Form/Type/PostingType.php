@@ -18,7 +18,7 @@ use PengarWin\DoubleEntryBundle\Model\PostingHandlerInterface;
  * PostingType
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class PostingType extends AbstractType
 {
@@ -33,7 +33,7 @@ class PostingType extends AbstractType
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  PostingHandlerInterface $ph
      */
@@ -46,7 +46,7 @@ class PostingType extends AbstractType
      * Build the form
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -67,7 +67,7 @@ class PostingType extends AbstractType
      * Get the name for the HTTP parameter
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getName()
     {

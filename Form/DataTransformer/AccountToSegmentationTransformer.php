@@ -17,7 +17,7 @@ use PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface;
  * AccountToSegmentationTransformer
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class AccountToSegmentationTransformer implements DataTransformerInterface
 {
@@ -32,7 +32,7 @@ class AccountToSegmentationTransformer implements DataTransformerInterface
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param AccountHandlerInterface $ah
      */
@@ -45,7 +45,7 @@ class AccountToSegmentationTransformer implements DataTransformerInterface
      * Transforms an Account to its segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  Account|null $account
      *
@@ -64,7 +64,7 @@ class AccountToSegmentationTransformer implements DataTransformerInterface
      * Transforms a string (segmentation) to an object (Account).
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $segmentation
      *

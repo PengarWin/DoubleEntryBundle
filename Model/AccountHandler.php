@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Criteria;
  * AccountHandler
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  *
  * @ORM\MappedSuperclass
  */
@@ -49,7 +49,7 @@ class AccountHandler implements AccountHandlerInterface
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $accountFqcn
      * @param  OrganizationHandlerInterface $oh
@@ -70,7 +70,7 @@ class AccountHandler implements AccountHandlerInterface
      * Get accountFqcn
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getAccountFqcn()
     {
@@ -81,7 +81,7 @@ class AccountHandler implements AccountHandlerInterface
      * Get repository
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     protected function getRepository()
     {
@@ -94,7 +94,7 @@ class AccountHandler implements AccountHandlerInterface
      * Get chart of accounts for current Organization
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Account
      */
@@ -116,7 +116,7 @@ class AccountHandler implements AccountHandlerInterface
      * Create new chart of accounts
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  OrganizationInterface $organization
      *
@@ -155,7 +155,7 @@ class AccountHandler implements AccountHandlerInterface
      * Find Account for segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $segmentation
      */
@@ -171,7 +171,7 @@ class AccountHandler implements AccountHandlerInterface
      * Find Account for path
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $path
      */
@@ -199,7 +199,7 @@ class AccountHandler implements AccountHandlerInterface
      * Get path for tree
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $path
      */
@@ -212,7 +212,7 @@ class AccountHandler implements AccountHandlerInterface
      * Create Account tree from segmentation
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  AccountInterface    $chart
      * @param  AccountSegmentation $segmentation
@@ -239,7 +239,7 @@ class AccountHandler implements AccountHandlerInterface
      * Create new Account
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $name
      *
@@ -257,7 +257,7 @@ class AccountHandler implements AccountHandlerInterface
      * Render Account tree as a multi-level array
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  AccountInterface $account
      *

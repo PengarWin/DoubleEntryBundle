@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * VendorHandler
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class VendorHandler implements VendorHandlerInterface
 {
@@ -42,7 +42,7 @@ class VendorHandler implements VendorHandlerInterface
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $vendorFqcn
      * @param  OrganizationHandlerInterface $oh
@@ -63,7 +63,7 @@ class VendorHandler implements VendorHandlerInterface
      * Create new Vendor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $name
      *
@@ -81,7 +81,7 @@ class VendorHandler implements VendorHandlerInterface
      * Find Vendor for name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $name
      *
@@ -102,7 +102,7 @@ class VendorHandler implements VendorHandlerInterface
      * Find Vendor for slug
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string  $slug
      *

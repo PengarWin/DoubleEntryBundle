@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * PostingHandlerInterface
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 interface PostingHandlerInterface
 {
@@ -21,7 +21,7 @@ interface PostingHandlerInterface
      * Get accountFqcn
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getPostingFqcn();
 
@@ -29,7 +29,7 @@ interface PostingHandlerInterface
      * Create new Posting
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Posting
      */
@@ -39,7 +39,7 @@ interface PostingHandlerInterface
      * Find Posting for id
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  int $id
      *

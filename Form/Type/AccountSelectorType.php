@@ -12,7 +12,7 @@ use PengarWin\DoubleEntryBundle\Form\DataTransformer\AccountToSegmentationTransf
  * AccountSelectorType
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class AccountSelectorType extends AbstractType
 {
@@ -27,7 +27,7 @@ class AccountSelectorType extends AbstractType
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param AccountHandlerInterface $ah
      */
@@ -40,7 +40,7 @@ class AccountSelectorType extends AbstractType
      * Build the form
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  FormBuilderInterface $builder
      * @param  array $options

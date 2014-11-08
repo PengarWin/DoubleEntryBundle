@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  * VendorType
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class VendorType extends AbstractType
 {
@@ -24,7 +24,7 @@ class VendorType extends AbstractType
      * Build the form
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -43,7 +43,7 @@ class VendorType extends AbstractType
      * Get the name for the HTTP parameter
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      */
     public function getName()
     {

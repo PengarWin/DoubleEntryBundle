@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  * SimpleJournalType
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-26
+ * @since  0.8.0
  */
 class SimpleJournalType extends AbstractType
 {
@@ -24,7 +24,7 @@ class SimpleJournalType extends AbstractType
      * Build the form
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  2014-10-26
+     * @since  0.8.0
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

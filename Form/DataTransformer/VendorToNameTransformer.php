@@ -18,7 +18,7 @@ use PengarWin\DoubleEntryBundle\Model\VendorHandlerInterface;
  * VendorToNameTransformer
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class VendorToNameTransformer implements DataTransformerInterface
 {
@@ -33,7 +33,7 @@ class VendorToNameTransformer implements DataTransformerInterface
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param VendorHandlerInterface $vh
      */
@@ -46,7 +46,7 @@ class VendorToNameTransformer implements DataTransformerInterface
      * Transforms an Vendor to its name
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  Vendor|null $vendor
      *
@@ -65,7 +65,7 @@ class VendorToNameTransformer implements DataTransformerInterface
      * Transforms a string (name) to an object (Vendor).
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  string $name
      *

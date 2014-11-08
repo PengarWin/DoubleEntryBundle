@@ -12,7 +12,7 @@ use PengarWin\DoubleEntryBundle\Model\JournalHandlerInterface;
  * JournalParamConverter
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class JournalParamConverter implements ParamConverterInterface
 {
@@ -25,7 +25,7 @@ class JournalParamConverter implements ParamConverterInterface
      * Constructor
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  JournalHandlerInterface $jh
      */
@@ -38,7 +38,7 @@ class JournalParamConverter implements ParamConverterInterface
      * Stores the object in the request
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param Request        $request       The request
      * @param ParamConverter $configuration Contains the name, class and options of the object
@@ -67,7 +67,7 @@ class JournalParamConverter implements ParamConverterInterface
      * Checks if the object is supported.
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  ParamConverter $configuration Should be an instance of ParamConverter
      *

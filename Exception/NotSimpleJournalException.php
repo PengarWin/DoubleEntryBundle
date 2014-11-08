@@ -8,7 +8,7 @@ namespace PengarWin\DoubleEntryBundle\Exception;
  * Thrown when trying to treat a non-simple Journal as a simple Journal
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  2014-10-13
+ * @since  0.8.0
  */
 class NotSimpleJournalException extends \Exception
 {

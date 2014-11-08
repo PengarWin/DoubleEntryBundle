@@ -13,7 +13,7 @@ namespace PengarWin\DoubleEntryBundle\Model;
  * OrganizationHandler
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
- * @since  1.0.0
+ * @since  0.8.0
  */
 class OrganizationHandler implements OrganizationHandlerInterface
 {
@@ -42,7 +42,7 @@ class OrganizationHandler implements OrganizationHandlerInterface
      * __construct()
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @param  \Symfony\Component\Security\Core\SecurityContext $securityContext
      * @param  \Doctrine\ORM\EntityManager $em
@@ -61,7 +61,7 @@ class OrganizationHandler implements OrganizationHandlerInterface
      * Get the Organization for the current context
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return Organization
      */
@@ -74,7 +74,7 @@ class OrganizationHandler implements OrganizationHandlerInterface
      * Get current User
      *
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
-     * @since  1.0.0
+     * @since  0.8.0
      *
      * @return User
      */
