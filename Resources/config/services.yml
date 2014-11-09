@@ -1,94 +1,94 @@
 parameters:
-    pengarwin.organization_handler.class: PengarWin\DoubleEntryBundle\Model\OrganizationHandler
-    pengarwin.account_handler.class:      PengarWin\DoubleEntryBundle\Model\AccountHandler
-    pengarwin.account_selector.class:     PengarWin\DoubleEntryBundle\Form\Type\AccountSelectorType
-    pengarwin.vendor_handler.class :      PengarWin\DoubleEntryBundle\Model\VendorHandler
-    pengarwin.vendor_selector.class:      PengarWin\DoubleEntryBundle\Form\Type\VendorSelectorType
+    phospr.organization_handler.class: Phospr\DoubleEntryBundle\Model\OrganizationHandler
+    phospr.account_handler.class:      Phospr\DoubleEntryBundle\Model\AccountHandler
+    phospr.account_selector.class:     Phospr\DoubleEntryBundle\Form\Type\AccountSelectorType
+    phospr.vendor_handler.class :      Phospr\DoubleEntryBundle\Model\VendorHandler
+    phospr.vendor_selector.class:      Phospr\DoubleEntryBundle\Form\Type\VendorSelectorType
 
-    pengarwin.journal_handler.class :     PengarWin\DoubleEntryBundle\Model\JournalHandler
-    pengarwin.posting_handler.class :     PengarWin\DoubleEntryBundle\Model\PostingHandler
+    phospr.journal_handler.class :     Phospr\DoubleEntryBundle\Model\JournalHandler
+    phospr.posting_handler.class :     Phospr\DoubleEntryBundle\Model\PostingHandler
 
-    pengarwin.account_param_converter.class: PengarWin\DoubleEntryBundle\Request\ParamConverter\AccountParamConverter
-    pengarwin.journal_param_converter.class: PengarWin\DoubleEntryBundle\Request\ParamConverter\JournalParamConverter
+    phospr.account_param_converter.class: Phospr\DoubleEntryBundle\Request\ParamConverter\AccountParamConverter
+    phospr.journal_param_converter.class: Phospr\DoubleEntryBundle\Request\ParamConverter\JournalParamConverter
 
-    pengarwin.form.type.journal.class:    PengarWin\DoubleEntryBundle\Form\Type\JournalType
-    pengarwin.form.type.posting.class:    PengarWin\DoubleEntryBundle\Form\Type\PostingType
+    phospr.form.type.journal.class:    Phospr\DoubleEntryBundle\Form\Type\JournalType
+    phospr.form.type.posting.class:    Phospr\DoubleEntryBundle\Form\Type\PostingType
 
 services:
-    pengarwin.organization_handler:
-        class: %pengarwin.organization_handler.class%
+    phospr.organization_handler:
+        class: %phospr.organization_handler.class%
         arguments:
-            - %pengarwin.organization.class%
+            - %phospr.organization.class%
             - @security.context
             - @doctrine.orm.entity_manager
 
-    pengarwin.vendor_handler:
-        class: %pengarwin.vendor_handler.class%
+    phospr.vendor_handler:
+        class: %phospr.vendor_handler.class%
         arguments:
-            - %pengarwin.vendor.class%
-            - @pengarwin.organization_handler
+            - %phospr.vendor.class%
+            - @phospr.organization_handler
             - @doctrine.orm.entity_manager
 
-    pengarwin.account_handler:
-        class: %pengarwin.account_handler.class%
+    phospr.account_handler:
+        class: %phospr.account_handler.class%
         arguments:
-            - %pengarwin.account.class%
-            - @pengarwin.organization_handler
+            - %phospr.account.class%
+            - @phospr.organization_handler
             - @doctrine.orm.entity_manager
 
-    pengarwin.journal_handler:
-        class: %pengarwin.journal_handler.class%
+    phospr.journal_handler:
+        class: %phospr.journal_handler.class%
         arguments:
-            - %pengarwin.journal.class%
-            - @pengarwin.organization_handler
+            - %phospr.journal.class%
+            - @phospr.organization_handler
             - @doctrine.orm.entity_manager
 
-    pengarwin.posting_handler:
-        class: %pengarwin.posting_handler.class%
+    phospr.posting_handler:
+        class: %phospr.posting_handler.class%
         arguments:
-            - %pengarwin.posting.class%
-            - @pengarwin.organization_handler
+            - %phospr.posting.class%
+            - @phospr.organization_handler
             - @doctrine.orm.entity_manager
 
-    pengarwin.type.vendor_selector:
-        class: %pengarwin.vendor_selector.class%
+    phospr.type.vendor_selector:
+        class: %phospr.vendor_selector.class%
         arguments:
-            - @pengarwin.vendor_handler
+            - @phospr.vendor_handler
         tags:
             - { name: form.type, alias: vendor_selector }
 
-    pengarwin.type.account_selector:
-        class: %pengarwin.account_selector.class%
+    phospr.type.account_selector:
+        class: %phospr.account_selector.class%
         arguments:
-            - @pengarwin.account_handler
+            - @phospr.account_handler
         tags:
             - { name: form.type, alias: account_selector }
 
-    pengarwin.account_param_converter:
-        class:     %pengarwin.account_param_converter.class%
+    phospr.account_param_converter:
+        class:     %phospr.account_param_converter.class%
         arguments:
-            - @pengarwin.account_handler
+            - @phospr.account_handler
         tags:
             - { name: request.param_converter, converter: account, priority: 10 }
 
-    pengarwin.journal_param_converter:
-        class:     %pengarwin.journal_param_converter.class%
+    phospr.journal_param_converter:
+        class:     %phospr.journal_param_converter.class%
         arguments:
-            - @pengarwin.journal_handler
+            - @phospr.journal_handler
         tags:
             - { name: request.param_converter, converter: journal, priority: 10 }
 
 
-    pengarwin.form.type.journal:
-        class: %pengarwin.form.type.journal.class%
+    phospr.form.type.journal:
+        class: %phospr.form.type.journal.class%
         arguments:
-            - @pengarwin.journal_handler
+            - @phospr.journal_handler
         tags:
             - { name: form.type, alias: journal }
 
-    pengarwin.form.type.posting:
-        class: %pengarwin.form.type.posting.class%
+    phospr.form.type.posting:
+        class: %phospr.form.type.posting.class%
         arguments:
-            - @pengarwin.posting_handler
+            - @phospr.posting_handler
         tags:
             - { name: form.type, alias: posting }

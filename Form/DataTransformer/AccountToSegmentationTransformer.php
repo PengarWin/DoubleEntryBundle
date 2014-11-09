@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the PengarWin DoubleEntryBundle package.
+ * This file is part of the Phospr DoubleEntryBundle package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace PengarWin\DoubleEntryBundle\Form\DataTransformer;
+namespace Phospr\DoubleEntryBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
-use PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface;
+use Phospr\DoubleEntryBundle\Model\AccountHandlerInterface;
 
 /**
  * AccountToSegmentationTransformer
@@ -24,7 +24,7 @@ class AccountToSegmentationTransformer implements DataTransformerInterface
     /**
      * Account Handler
      *
-     * @var \PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface
+     * @var \Phospr\DoubleEntryBundle\Model\AccountHandlerInterface
      */
     protected $ah;
 

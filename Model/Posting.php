@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the PengarWin DoubleEntryBundle package.
+ * This file is part of the Phospr DoubleEntryBundle package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace PengarWin\DoubleEntryBundle\Model;
+namespace Phospr\DoubleEntryBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
-use PengarWin\DoubleEntryBundle\Exception\JournalImbalanceException;
+use Phospr\DoubleEntryBundle\Exception\JournalImbalanceException;
 
 /**
  * Posting

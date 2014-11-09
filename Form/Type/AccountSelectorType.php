@@ -1,12 +1,12 @@
 <?php
 
-namespace PengarWin\DoubleEntryBundle\Form\Type;
+namespace Phospr\DoubleEntryBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface;
-use PengarWin\DoubleEntryBundle\Form\DataTransformer\AccountToSegmentationTransformer;
+use Phospr\DoubleEntryBundle\Model\AccountHandlerInterface;
+use Phospr\DoubleEntryBundle\Form\DataTransformer\AccountToSegmentationTransformer;
 
 /**
  * AccountSelectorType
@@ -19,7 +19,7 @@ class AccountSelectorType extends AbstractType
     /**
      * Account Handler
      *
-     * @var \PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface
+     * @var \Phospr\DoubleEntryBundle\Model\AccountHandlerInterface
      */
     protected $ah;
 

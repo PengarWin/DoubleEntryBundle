@@ -1,12 +1,12 @@
 {
-    "name": "pengarwin/double-entry-bundle",
+    "name": "phospr/double-entry-bundle",
     "require": {
         "php": ">=5.3.0",
         "stof/doctrine-extensions-bundle": "~1.1@dev"
     },
     "autoload": {
-        "psr-0": { "PengarWin\\DoubleEntryBundle": "" }
+        "psr-0": { "Phospr\\DoubleEntryBundle": "" }
     },
-    "target-dir": "PengarWin/DoubleEntryBundle",
+    "target-dir": "Phospr/DoubleEntryBundle",
     "license": "MIT"
 }

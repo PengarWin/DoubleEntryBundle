@@ -1,12 +1,12 @@
 <?php
 
-namespace PengarWin\DoubleEntryBundle\Form\Type;
+namespace Phospr\DoubleEntryBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use PengarWin\DoubleEntryBundle\Model\VendorHandlerInterface;
-use PengarWin\DoubleEntryBundle\Form\DataTransformer\VendorToNameTransformer;
+use Phospr\DoubleEntryBundle\Model\VendorHandlerInterface;
+use Phospr\DoubleEntryBundle\Form\DataTransformer\VendorToNameTransformer;
 
 /**
  * VendorSelectorType
@@ -19,7 +19,7 @@ class VendorSelectorType extends AbstractType
     /**
      * Vendor Handler
      *
-     * @var \PengarWin\DoubleEntryBundle\Model\VendorHandlerInterface
+     * @var \Phospr\DoubleEntryBundle\Model\VendorHandlerInterface
      */
     protected $vh;
 

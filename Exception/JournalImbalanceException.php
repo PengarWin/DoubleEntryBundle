@@ -1,6 +1,6 @@
 <?php
 
-namespace PengarWin\DoubleEntryBundle\Exception;
+namespace Phospr\DoubleEntryBundle\Exception;
 
 /**
  * JournalImbalanceException

@@ -1,12 +1,12 @@
 <?php
 
-namespace PengarWin\DoubleEntryBundle\Request\ParamConverter;
+namespace Phospr\DoubleEntryBundle\Request\ParamConverter;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use PengarWin\DoubleEntryBundle\Model\AccountHandlerInterface;
+use Phospr\DoubleEntryBundle\Model\AccountHandlerInterface;
 
 /**
  * AccountParamConverter

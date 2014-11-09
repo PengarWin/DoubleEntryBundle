@@ -1,13 +1,13 @@
 <?php
 
 /*
- * This file is part of the PengarWin DoubleEntryBundle package.
+ * This file is part of the Phospr DoubleEntryBundle package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace PengarWin\DoubleEntryBundle\DependencyInjection;
+namespace Phospr\DoubleEntryBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('pengarwin_double_entry');
+        $rootNode = $treeBuilder->root('phospr_double_entry');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
