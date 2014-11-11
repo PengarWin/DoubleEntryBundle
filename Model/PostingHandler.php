@@ -118,11 +118,14 @@ class PostingHandler implements PostingHandlerInterface
      * @author Tom Haskins-Vaughan <tom@tomhv.uk>
      * @since  0.8.0
      *
+     * @param  AccountInterface $account
+     * @param  float            $amount
+     *
      * @return Posting
      */
-    public function createPosting()
+    public function createPosting(AccountInterface $account, $amount)
     {
-        $posting = new $this->postingFqcn();
+        $posting = new $this->postingFqcn($account, $amount);
         $posting->setOrganization($this->oh->getOrganization());
 
         return $posting;
