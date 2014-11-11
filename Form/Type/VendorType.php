@@ -30,7 +30,7 @@ class VendorType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('defaultOffsetAccount')
+            ->add('defaultOffsetAccount', 'account_selector')
             ->add('defaultJournalDescription')
             ->add('defaultJournalCreditAmount')
             ->add('defaultJournalDebitAmount')
