@@ -421,4 +421,21 @@ abstract class Vendor
     {
         return $this->organization;
     }
+
+    /**
+     * Get segmentation for defaultOffsetAccount
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.9.2
+     *
+     * @return string
+     */
+    public function getDefaultOffsetAccountSegmentation()
+    {
+        if ($this->getDefaultOffsetAccount()) {
+            return $this->getDefaultOffsetAccount()->getSegmentation();
+        }
+
+        return null;
+    }
 }
