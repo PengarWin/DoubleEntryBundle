@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\Criteria;
+use JMS\Serializer\Annotation as JMSSerializer;
 
 /**
  * Account
@@ -22,6 +23,8 @@ use Doctrine\Common\Collections\Criteria;
  *
  * @ORM\MappedSuperclass
  * @Gedmo\Tree(type="nested")
+ *
+ * @JMSSerializer\ExclusionPolicy("all")
  */
 abstract class Account
 {
@@ -92,6 +95,7 @@ abstract class Account
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @JMSSerializer\Expose
      */
     protected $segmentation;
 

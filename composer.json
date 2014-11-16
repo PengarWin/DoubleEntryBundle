@@ -2,7 +2,8 @@
     "name": "phospr/double-entry-bundle",
     "require": {
         "php": ">=5.3.0",
-        "stof/doctrine-extensions-bundle": "~1.1@dev"
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "jms/serializer-bundle": "~0.13@dev"
     },
     "autoload": {
         "psr-0": { "Phospr\\DoubleEntryBundle": "" }

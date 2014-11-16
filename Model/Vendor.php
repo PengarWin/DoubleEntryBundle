@@ -12,12 +12,15 @@ namespace Phospr\DoubleEntryBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as JMSSerializer;
 
 /**
  * Vendor
  *
  * @author Tom Haskins-Vaughan <tom@tomhv.uk>
  * @since  0.8.0
+ *
+ * @JMSSerializer\ExclusionPolicy("all")
  *
  * @ORM\MappedSuperclass
  */
@@ -40,6 +43,7 @@ abstract class Vendor
 
     /**
      * @ORM\Column(type="string", unique=true)
+     * @JMSSerializer\Expose
      */
     protected $name;
 
@@ -51,21 +55,26 @@ abstract class Vendor
 
     /**
      * @var Account
+     * @JMSSerializer\Expose
+     * @JMSSerializer\MaxDepth(1)
      */
     protected $defaultOffsetAccount;
 
     /**
      * @ORM\Column(type="string", name="default_journal_description")
+     * @JMSSerializer\Expose
      */
     protected $defaultJournalDescription = '';
 
     /**
      * @ORM\Column(type="decimal", scale=2)
+     * @JMSSerializer\Expose
      */
     protected $defaultJournalCreditAmount = 0;
 
     /**
      * @ORM\Column(type="decimal", scale=2)
+     * @JMSSerializer\Expose
      */
     protected $defaultJournalDebitAmount = 0;
 
