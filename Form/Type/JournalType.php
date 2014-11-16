@@ -66,7 +66,10 @@ class JournalType extends AbstractType
             ))
             ->add('vendor', 'vendor_selector')
             ->add('description')
-            ->add('postings', 'collection', array('type' => 'posting'))
+            ->add('postings', 'collection', array(
+                'type' => 'posting',
+                'allow_add' => true,
+            ))
             ->add('save', 'submit', array('label' => $options['label']))
             ->setAction($options['action'])
         ;
