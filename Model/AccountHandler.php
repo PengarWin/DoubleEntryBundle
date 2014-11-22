@@ -275,4 +275,28 @@ class AccountHandler implements AccountHandlerInterface
 
         return $array;
     }
+
+    /**
+     * Get a collection of favourite Accounts for User
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.10.0
+     *
+     * @return Collection
+     */
+    public function getFavouriteAccountsForUser(UserInterface $user)
+    {
+        $criteria = new Criteria();
+        $criteria
+            ->where($criteria->expr()->in(
+                'id',
+                $user->getMyFavouriteAccountIds()
+            ))
+        ;
+
+        return $this->oh->getOrganization()
+            ->getAccounts()
+            ->matching($criteria)
+        ;
+    }
 }
