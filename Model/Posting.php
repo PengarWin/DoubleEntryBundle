@@ -35,6 +35,11 @@ abstract class Posting
     protected $organization;
 
     /**
+     * @ORM\Column(type="date")
+     */
+    protected $date;
+
+    /**
      * @var AccountInterface
      */
     protected $account;
@@ -421,5 +426,49 @@ abstract class Posting
                 $postingBalance
             ));
         }
+    }
+
+    /**
+     * Set date from Journal
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setDateFromJournal()
+    {
+        $this->setDate($this->getJournal()->getDate());
+    }
+
+    /**
+     * Set date
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @param \DateTime $date
+     *
+     * @return Journal
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @author Tom Haskins-Vaughan <tom@tomhv.uk>
+     * @since  0.11.0
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }
