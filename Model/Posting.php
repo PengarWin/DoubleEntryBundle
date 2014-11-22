@@ -82,10 +82,15 @@ abstract class Posting
      * @param  AccountInterface $account
      * @param  float            $amount
      */
-    public function __construct(AccountInterface $account, $amount)
+    public function __construct(AccountInterface $account = null, $amount = null)
     {
-        $this->setAccount($account);
-        $this->setAmount($amount);
+        if (null !== $account) {
+            $this->setAccount($account);
+        }
+
+        if (null !== $amount) {
+            $this->setAmount($amount);
+        }
     }
 
     /**

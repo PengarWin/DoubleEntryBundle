@@ -123,7 +123,7 @@ class PostingHandler implements PostingHandlerInterface
      *
      * @return Posting
      */
-    public function createPosting(AccountInterface $account, $amount)
+    public function createPosting(AccountInterface $account = null, $amount = null)
     {
         $posting = new $this->postingFqcn($account, $amount);
         $posting->setOrganization($this->oh->getOrganization());

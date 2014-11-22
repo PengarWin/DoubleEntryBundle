@@ -509,7 +509,7 @@ abstract class Journal
     public function assertIsSimpleJournal()
     {
         if (2 != $this->getPostings()->count()) {
-            throw new \Exception(sprintf(
+            throw new NotSimpleJournalException(sprintf(
                 'Journal has %d Postings and is not a simple Journal',
                 $this->getPostings()->count()
             ));
